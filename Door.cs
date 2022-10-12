@@ -15,6 +15,7 @@ namespace ChargeStation
         bool OnDoorState(bool state);
     }
 
+   
 
 
     public class Door : IDoor

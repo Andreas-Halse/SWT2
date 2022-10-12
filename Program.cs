@@ -34,10 +34,10 @@
                         string idString = System.Console.ReadLine();
 
                         int id = Convert.ToInt32(idString);
-                        rfidReader.OnRfidRead(id);
+                        //rfidReader.OnRfidRead(id);
                         break;
 
-                    default:
+                    default: //secret message for Andreas
                         break;
                 }
 

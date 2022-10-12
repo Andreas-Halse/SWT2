@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace SWT2
 {
-    interface IRFIDReader
+    internal interface ILadeskab
     {
-        
-    }
-    public class RFIDReader : IRFIDReader
-    {
-    }
 
-
+    }
 }

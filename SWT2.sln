@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWT2", "SWT2.csproj", "{B7302627-7696-4C59-90C1-B94253D51F6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWT2_Test", "..\SWT2_Test\SWT2_Test.csproj", "{30886C89-EFC4-48A0-B7FC-5BE5EFD86325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B7302627-7696-4C59-90C1-B94253D51F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7302627-7696-4C59-90C1-B94253D51F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7302627-7696-4C59-90C1-B94253D51F6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30886C89-EFC4-48A0-B7FC-5BE5EFD86325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30886C89-EFC4-48A0-B7FC-5BE5EFD86325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30886C89-EFC4-48A0-B7FC-5BE5EFD86325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30886C89-EFC4-48A0-B7FC-5BE5EFD86325}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

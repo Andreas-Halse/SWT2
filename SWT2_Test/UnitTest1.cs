@@ -1,3 +1,4 @@
+using ClassLibrary;
 namespace SWT2_Test
 {
     public class Tests
@@ -5,6 +6,8 @@ namespace SWT2_Test
         [SetUp]
         public void Setup()
         {
+            IChargeControl mockCharge= new MockChargeControl();
+            
         }
 
         [Test]
@@ -12,5 +15,14 @@ namespace SWT2_Test
         {
             Assert.Pass();
         }
+
+        #region ChargeControlTests
+        [Test]
+        public void Test2()
+        {
+            Assert.Pass();
+        }
+        #endregion
+       
     }
 }

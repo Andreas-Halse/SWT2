@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-  
-    public class ChargeControl : IChargeControl
+    interface IChargeControl
     {
+        
     }
-
-    
-    
+   
 }

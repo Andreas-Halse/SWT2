@@ -4,36 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChargeStation
+namespace ClassLibrary
 {
-    interface IDoor
+    public interface IDoor
     {
-        void OnDoorOpen();
+        bool locked { get; }
+        void DoorUnlock();
 
-        void OnDoorClose();
-
-        bool OnDoorState(bool state);
+        void DoorLock();
     }
-
-   
-
 
     public class Door : IDoor
     {
-        public void OnDoorOpen()
+        public bool locked { get; set; }
+
+        public Door()
         {
-            // Write something to console
-            OnDoorState(true);
+            locked = false; //Lav event 
+        }
+        
+        public void DoorUnlock()
+        {
+            //Give message to StationControl that door is unlocked.
+            
         }
 
-        public void OnDoorClose()
+        public void DoorLock()
         {
-
-        }
-
-        public bool OnDoorState(bool state)
-        {
-            return state;
+            //Give message to StationControl that door is locked. 
+            
         }
     }
 }

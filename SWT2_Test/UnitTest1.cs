@@ -1,6 +1,9 @@
 using System;
 using System.IO;
 
+
+using ClassLibrary;
+
 namespace SWT2_Test
 {
     public class Tests
@@ -8,6 +11,8 @@ namespace SWT2_Test
         [SetUp]
         public void Setup()
         {
+            IChargeControl mockCharge= new MockChargeControl();
+            
         }
 
         [Test]
@@ -15,6 +20,7 @@ namespace SWT2_Test
         {
             Assert.Pass();
         }
+
 
 
 
@@ -81,6 +87,22 @@ namespace SWT2_Test
         public void ChargeErrorTest()
         {
 
+
+        #region ChargeControlTests
+        [Test]
+        public void Test2()
+        {
+            Assert.Pass();
+        }
+        #endregion
+       
+        #region DoorTests
+        [Test]
+        public void DoorLockedTest()
+        {
+            IDoor door1 = new Door();
+            bool test = door1.locked;
+            Assert.That(test);
         }
 
         #endregion

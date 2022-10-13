@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-  
-    public class ChargeControl : IChargeControl
+   
+    public class MockChargeControl : IChargeControl
     {
     }
-
-    
-    
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UsbSimulator
+namespace ClassLibrary
 {
     public class CurrentEventArgs : EventArgs
     {
@@ -13,11 +13,15 @@ namespace UsbSimulator
         // Event triggered on new current value
         event EventHandler<CurrentEventArgs> CurrentValueEvent;
 
+    
+
         // Direct access to the current current value
         double CurrentValue { get; }
 
         // Require connection status of the phone
         bool Connected { get; }
+
+
 
         // Start charging
         void StartCharge();

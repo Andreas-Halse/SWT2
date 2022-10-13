@@ -24,5 +24,15 @@ namespace SWT2_Test
         }
         #endregion
        
+        #region DoorTests
+        [Test]
+        public void DoorLockedTest()
+        {
+            IDoor door1 = new Door();
+            bool test = door1.locked;
+            Assert.That(test);
+        }
+
+        #endregion
     }
 }

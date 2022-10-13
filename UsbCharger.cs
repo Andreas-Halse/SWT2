@@ -32,8 +32,6 @@ namespace ClassLibrary
         // Stop charging
         public void StopCharge(object? sender, CurrentEventArgs e)
         {
-        }
-        {
 
         }
     }

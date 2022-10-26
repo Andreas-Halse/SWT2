@@ -13,7 +13,7 @@ namespace SWT2
 
     }
 
-    internal class logFile : ILogFile
+    public class logFile : ILogFile
     {
         public void logDoorLocked(int id)
         {
@@ -38,6 +38,7 @@ namespace SWT2
             }
         }
 
+        // Function to get timestamp in string
         public static String GetTimestamp(DateTime value)
         {
             return value.ToString("yyyyMMddHHmmssffff");

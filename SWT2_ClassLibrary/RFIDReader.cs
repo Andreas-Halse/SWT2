@@ -10,7 +10,8 @@ namespace ClassLibrary
         
         public void RFIDTagReader(int id)
         {
-            _ID = id;
+            _ID = id; //Set IdTag
+            OnRfidDetected(); //Call Event
         }
 
         //Event starts

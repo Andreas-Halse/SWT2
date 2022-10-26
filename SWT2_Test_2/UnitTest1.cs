@@ -1,1117 +1,1079 @@
-using System;
-using System.IO;
-using ClassLibrary;
-using NUnit.Framework;
-using SWT2;
+//using System;
+//using System.IO;
+//using ClassLibrary;
+//using NUnit.Framework;
+//using SWT2;
 
-namespace SWT2_Test
-{
-    //
+//namespace SWT2_Test
+//{
+//    //
 
-    [TestFixture]
+//    [TestFixture]
 
-    public class Tests
-    {
-        [SetUp]
-        public void Setup()
-        {
-            //IChargeControl mockCharge= new MockChargeControl();
+//    public class Tests
+//    {
+//        [SetUp]
+//        public void Setup()
+//        {
+//            //IChargeControl mockCharge= new MockChargeControl();
 
-        }
+//        }
 
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
+//        [Test]
+//        public void Test1()
+//        {
+//            Assert.Pass();
+//        }
 
 
-        #region RFIDReaderTests
+//        #region RFIDReaderTests
 
-        /* [Test]
+//        /* [Test]
  
-         public void RFIDTagReader()
-         {
-             int id = 1234;
-             IRFIDReader uut = new RFIDReader();
+//         public void RFIDTagReader()
+//         {
+//             int id = 1234;
+//             IRFIDReader uut = new RFIDReader();
  
-             Assert.
-         }
+//             Assert.
+//         }
          
  
-         #endregion
+//         #endregion
  
-         #region DisplayTests
+//         #region DisplayTests
  
-         [Test]
+//         [Test]
          
-         public void ConnectionTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         public void ConnectionTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.Connection();
+//             IDisplay uut = new Display();
+//             uut.Connection();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Phone is connected\r\n");
+//             Assert.Equals(actulstring, "Phone is connected\r\n");
              
-         }
+//         }
  
-         [Test]
-         public void LoadRFIDTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void LoadRFIDTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.LoadRFID();
+//             IDisplay uut = new Display();
+//             uut.LoadRFID();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Load your RFID\r\n");
-         }
+//             Assert.Equals(actulstring, "Load your RFID\r\n");
+//         }
  
-         [Test]
-         public void ConnectionErrorTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void ConnectionErrorTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.ConnectionError();
+//             IDisplay uut = new Display();
+//             uut.ConnectionError();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
-         }
+//             Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
+//         }
  
-         [Test]
-         public void OccupiedTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void OccupiedTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.Occupied();
+//             IDisplay uut = new Display();
+//             uut.Occupied();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Charger is occupied\r\n");
-         }
+//             Assert.Equals(actulstring, "Charger is occupied\r\n");
+//         }
  
-         [Test]
-         public void RFIDErrorTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void RFIDErrorTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.RFIDError();
+//             IDisplay uut = new Display();
+//             uut.RFIDError();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
-         }
+//             Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
+//         }
  
-         [Test]
-         public void RemovePhoneTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void RemovePhoneTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.RemovePhone();
+//             IDisplay uut = new Display();
+//             uut.RemovePhone();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Please remove phone\r\n");
-         }
+//             Assert.Equals(actulstring, "Please remove phone\r\n");
+//         }
  
-         [Test]
-         public void FullyChargedTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void FullyChargedTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.FullyCharged();
+//             IDisplay uut = new Display();
+//             uut.FullyCharged();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Phone is fully charged\r\n");
-         }
+//             Assert.Equals(actulstring, "Phone is fully charged\r\n");
+//         }
  
-         [Test]
-         public void PhoneChargingTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void PhoneChargingTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.PhoneCharging();
+//             IDisplay uut = new Display();
+//             uut.PhoneCharging();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Phone is charging\r\n");
-         }
+//             Assert.Equals(actulstring, "Phone is charging\r\n");
+//         }
  
-         [Test]
-         public void ChargeErrorTest()
-         {
-             var stringwriter = new StringWriter();
-             Console.SetOut(stringwriter);
+//         [Test]
+//         public void ChargeErrorTest()
+//         {
+//             var stringwriter = new StringWriter();
+//             Console.SetOut(stringwriter);
  
-             IDisplay uut = new Display();
-             uut.ChargeError();
+//             IDisplay uut = new Display();
+//             uut.ChargeError();
  
-             string actulstring = stringwriter.ToString();
+//             string actulstring = stringwriter.ToString();
  
-             Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
-         }
-         #endregion
+//             Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
+//         }
+//         #endregion
  
-         #region StationControlTests
+//         #region StationControlTests
  
-         [TestCase(true, StationControl.LadeskabState.DoorOpen)]
-         [TestCase(false, StationControl.LadeskabState.Available)]
-         public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
-         {
-             /*IChargeControl stubChargeControl = new StubChargeControl();
-             IDisplay stubDisplay = new StubDisplay();
-             IRFIDReader stubRfidReader = new StubRfidReader();
-             ILogFile stubLogFile = new StubLogFile();
-             IDoor stubDoor = new StubDoor();
+//         [TestCase(true, StationControl.LadeskabState.DoorOpen)]
+//         [TestCase(false, StationControl.LadeskabState.Available)]
+//         public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
+//         {
+//             /*IChargeControl stubChargeControl = new StubChargeControl();
+//             IDisplay stubDisplay = new StubDisplay();
+//             IRFIDReader stubRfidReader = new StubRfidReader();
+//             ILogFile stubLogFile = new StubLogFile();
+//             IDoor stubDoor = new StubDoor();
  
-             StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
+//             StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
  
  
  
-             Assert.AreSame(uut.DoorState, expectedState);*/
+//             Assert.AreSame(uut.DoorState, expectedState);*/
 
 
-        #endregion
+//        #endregion
 
-        #region ChargeControlTests
+//        #region ChargeControlTests
 
-        
-       /* [Test]
-        public void RFIDTagReader()
-        {
-            int id = 1234;
-            IRFIDReader uut = new RFIDReader();
 
-            Assert.
-        }*/
+//        /* [Test]
+//         public void RFIDTagReader()
+//         {
+//             int id = 1234;
+//             IRFIDReader uut = new RFIDReader();
+ 
+//             Assert.
+//         }*/
 
 
-        #endregion
-        
-        #region DisplayTests
-       
-        [Test]
-        
-        public void ConnectionTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        #endregion
 
-            IDisplay uut = new Display();
-            uut.Connection();
+//        #region DisplayTests
 
-            string actulstring = stringwriter.ToString();
+//        [Test]
 
-            Assert.Equals(actulstring, "Phone is connected\r\n");
-            
-        }
+//        public void ConnectionTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-        [Test]
-        public void LoadRFIDTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//            IDisplay uut = new Display();
+//            uut.Connection();
 
-            IDisplay uut = new Display();
-            uut.LoadRFID();
+//            string actulstring = stringwriter.ToString();
 
-            string actulstring = stringwriter.ToString();
+//            Assert.Equals(actulstring, "Phone is connected\r\n");
 
-            Assert.Equals(actulstring, "Load your RFID\r\n");
-        }
+//        }
 
-        [Test]
-        public void ConnectionErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void LoadRFIDTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.ConnectionError();
+//            IDisplay uut = new Display();
+//            uut.LoadRFID();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
-        }
+//            Assert.Equals(actulstring, "Load your RFID\r\n");
+//        }
 
-        [Test]
-        public void OccupiedTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void ConnectionErrorTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.Occupied();
+//            IDisplay uut = new Display();
+//            uut.ConnectionError();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Charger is occupied\r\n");
-        }
+//            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
+//        }
 
-        [Test]
-        public void RFIDErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void OccupiedTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.RFIDError();
+//            IDisplay uut = new Display();
+//            uut.Occupied();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
-        }
+//            Assert.Equals(actulstring, "Charger is occupied\r\n");
+//        }
 
-        [Test]
-        public void RemovePhoneTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void RFIDErrorTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.RemovePhone();
+//            IDisplay uut = new Display();
+//            uut.RFIDError();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Please remove phone\r\n");
-        }
+//            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
+//        }
 
-        [Test]
-        public void FullyChargedTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void RemovePhoneTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.FullyCharged();
+//            IDisplay uut = new Display();
+//            uut.RemovePhone();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is fully charged\r\n");
-        }
+//            Assert.Equals(actulstring, "Please remove phone\r\n");
+//        }
 
-        [Test]
-        public void PhoneChargingTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void FullyChargedTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.PhoneCharging();
+//            IDisplay uut = new Display();
+//            uut.FullyCharged();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is charging\r\n");
-        }
+//            Assert.Equals(actulstring, "Phone is fully charged\r\n");
+//        }
 
-        [Test]
-        public void ChargeErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//        [Test]
+//        public void PhoneChargingTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            IDisplay uut = new Display();
-            uut.ChargeError();
+//            IDisplay uut = new Display();
+//            uut.PhoneCharging();
 
-            string actulstring = stringwriter.ToString();
+//            string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
-        }
-        #endregion
-        [TestFixture]
+//            Assert.Equals(actulstring, "Phone is charging\r\n");
+//        }
 
-        class TestRFIDReader
-        {
-            private RFIDReader _uut;
-            private RFIDEventArgs _receivedEventArgs;
+//        [Test]
+//        public void ChargeErrorTest()
+//        {
+//            var stringwriter = new StringWriter();
+//            Console.SetOut(stringwriter);
 
-            [SetUp]
-            public void Setup()
-            {
-                _receivedEventArgs = null;
-                _uut = new RFIDReader();
-                _uut.RFIDTagReader(2945);
+//            IDisplay uut = new Display();
+//            uut.ChargeError();
 
-                // Set up an event listener to check the event occurrence and event data
-                _uut.RfidDeteced +=
-                    (o, args) => { _receivedEventArgs = args; };
-            }
+//            string actulstring = stringwriter.ToString();
 
-            [Test]
+//            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
+//        }
 
-            public void setRFIDTag()
-            {
-                _uut.RFIDTagReader(2945);
-                Assert.That(_receivedEventArgs, Is.Not.Null);
-            }
+//        #endregion
+//    }
 
-            //public void setRFIDTag_CorrectValue()
-            //{
-            //    _uut.RFIDTagReader(2945);
-            //    Assert.That(_receivedEventArgs.id, Is.EqualTo(2945));
-            //}
+//}
+///*
+//#region DisplayTests
 
-            //public void setRFIDTag_NotCorrectValue()
-            //{
-            //    _uut.RFIDTagReader(3333);
-            //    Assert.That(_receivedEventArgs.id, Is.EqualTo(2945));
-            //}
-        }
+//[Test]
 
-        #endregion
+//public void ConnectionTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-        /*
-        #region DisplayTests
+//    IDisplay uut = new Display();
+//    uut.Connection();
 
-        [Test]
+//    string actulstring = stringwriter.ToString();
 
-        public void ConnectionTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Phone is connected\r\n");
 
-            IDisplay uut = new Display();
-            uut.Connection();
+//}
 
-            string actulstring = stringwriter.ToString();
+//[Test]
+//public void LoadRFIDTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            Assert.Equals(actulstring, "Phone is connected\r\n");
+//    IDisplay uut = new Display();
+//    uut.LoadRFID();
 
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void LoadRFIDTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Load your RFID\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.LoadRFID();
+//[Test]
+//public void ConnectionErrorTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.ConnectionError();
 
-            Assert.Equals(actulstring, "Load your RFID\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void ConnectionErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.ConnectionError();
+//[Test]
+//public void OccupiedTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.Occupied();
 
-            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void OccupiedTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Charger is occupied\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.Occupied();
+//[Test]
+//public void RFIDErrorTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.RFIDError();
 
-            Assert.Equals(actulstring, "Charger is occupied\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void RFIDErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.RFIDError();
+//[Test]
+//public void RemovePhoneTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.RemovePhone();
 
-            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void RemovePhoneTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Please remove phone\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.RemovePhone();
+//[Test]
+//public void FullyChargedTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.FullyCharged();
 
-            Assert.Equals(actulstring, "Please remove phone\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void FullyChargedTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Phone is fully charged\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.FullyCharged();
+//[Test]
+//public void PhoneChargingTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.PhoneCharging();
 
-            Assert.Equals(actulstring, "Phone is fully charged\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void PhoneChargingTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Phone is charging\r\n");
+//}
 
-            IDisplay uut = new Display();
-            uut.PhoneCharging();
+//[Test]
+//public void ChargeErrorTest()
+//{
+//    var stringwriter = new StringWriter();
+//    Console.SetOut(stringwriter);
 
-            string actulstring = stringwriter.ToString();
+//    IDisplay uut = new Display();
+//    uut.ChargeError();
 
-            Assert.Equals(actulstring, "Phone is charging\r\n");
-        }
+//    string actulstring = stringwriter.ToString();
 
-        [Test]
-        public void ChargeErrorTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
+//    Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
+//}
+//#endregion
 
-            IDisplay uut = new Display();
-            uut.ChargeError();
+//#region StationControlTests
 
-            string actulstring = stringwriter.ToString();
+//[TestCase(true, StationControl.LadeskabState.DoorOpen)]
+//[TestCase(false, StationControl.LadeskabState.Available)]
+//public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
+//{
+//    /*IChargeControl stubChargeControl = new StubChargeControl();
+//    IDisplay stubDisplay = new StubDisplay();
+//    IRFIDReader stubRfidReader = new StubRfidReader();
+//    ILogFile stubLogFile = new StubLogFile();
+//    IDoor stubDoor = new StubDoor();
 
-            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
-        }
-        #endregion
+//    StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
 
-        #region StationControlTests
 
-        [TestCase(true, StationControl.LadeskabState.DoorOpen)]
-        [TestCase(false, StationControl.LadeskabState.Available)]
-        public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
-        {
-            /*IChargeControl stubChargeControl = new StubChargeControl();
-            IDisplay stubDisplay = new StubDisplay();
-            IRFIDReader stubRfidReader = new StubRfidReader();
-            ILogFile stubLogFile = new StubLogFile();
-            IDoor stubDoor = new StubDoor();
 
-            StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
+//    Assert.AreSame(uut.DoorState, expectedState);
+//}
+//#endregion
+//*/
 
+//        #region StationControlTests
+//        /*
+//        [TestCase(true, StationControl.LadeskabState.DoorOpen)]
+//        [TestCase(false, StationControl.LadeskabState.Available)]
+//        public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
+//        {
+//            IChargeControl stubChargeControl = new StubChargeControl();
+//            IDisplay stubDisplay = new StubDisplay();
+//            IRFIDReader stubRfidReader = new StubRfidReader();
+//            ILogFile stubLogFile = new StubLogFile();
+//            IDoor stubDoor = new StubDoor();
 
+//            StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
 
-            Assert.AreSame(uut.DoorState, expectedState);
-    }
-    #endregion
-*/
 
-        #region StationControlTests
-        /*
-        [TestCase(true, StationControl.LadeskabState.DoorOpen)]
-        [TestCase(false, StationControl.LadeskabState.Available)]
-        public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
-        {
-            IChargeControl stubChargeControl = new StubChargeControl();
-            IDisplay stubDisplay = new StubDisplay();
-            IRFIDReader stubRfidReader = new StubRfidReader();
-            ILogFile stubLogFile = new StubLogFile();
-            IDoor stubDoor = new StubDoor();
 
-            StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
+//            Assert.AreSame(uut.DoorState, expectedState);
+//        }
+//        */
+//#endregion
 
+//    #region ChargeControlTests
+//    //[Test]
+//    //    public void Test2()
+//    //    {
+//    //        Assert.Pass();
+//    //    }
 
+//        #endregion
 
-            Assert.AreSame(uut.DoorState, expectedState);
-        }
-        */
-#endregion
+//        #region DoorTests
 
-    #region ChargeControlTests
-    [Test]
-        public void Test2()
-        {
-            Assert.Pass();
-        }
+//        [Test]
+//        public void DoorLockedTest()
+//        {
+//            IDoor uut = new Door();
+//            uut.DoorLock();
+//            Assert.That(uut.locked == true);
+//        }
 
-        #endregion
+//        public void DoorUnlockedTest()
+//        {
+//            IDoor uut = new Door();
+//            uut.DoorUnlock();
+//            Assert.That(uut.locked == false);
+//        }
 
-        #region DoorTests
+//        public void DoorOpenedTest()
+//        {
+//            IDoor uut = new Door();
+//            uut.DoorOpened();
+//            Assert.That(uut._open == true);
+//        }
 
-        [Test]
-        public void DoorLockedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorLock();
-            Assert.That(uut.locked == true);
-        }
+//        public void DoorClosedTest()
+//        {
+//            IDoor uut = new Door();
+//            uut.DoorClosed();
+//            Assert.That(uut._open == false);
+//        }
 
-        public void DoorUnlockedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorUnlock();
-            Assert.That(uut.locked == false);
-        }
+//        #endregion
 
-        public void DoorOpenedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorOpened();
-            Assert.That(uut._open == true);
-        }
 
-        public void DoorClosedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorClosed();
-            Assert.That(uut._open == false);
-        }
+//        #region Handout_tests
 
-        #endregion
-
-
-        #region Handout_tests
-
-/*
+///*
     
 
-    [TestFixture]
-    public class TestUsbChargerSimulator
-    {
+//    [TestFixture]
+//    public class TestUsbChargerSimulator
+//    {
         
-        private UsbChargerSimulator _uut;
-        [SetUp]
-        public void Setup()
-        {
-            _uut = new UsbChargerSimulator();
-        }
+//        private UsbChargerSimulator _uut;
+//        [SetUp]
+//        public void Setup()
+//        {
+//            _uut = new UsbChargerSimulator();
+//        }
         
-        [Test]
-        public void ctor_IsConnected()
-        {
-            Assert.That(_uut.Connected, Is.True);
-        }
+//        [Test]
+//        public void ctor_IsConnected()
+//        {
+//            Assert.That(_uut.Connected, Is.True);
+//        }
 
-        [Test]
-        public void ctor_CurentValueIsZero()
-        {
-            Assert.That(_uut.CurrentValue, Is.Zero);
-        }
+//        [Test]
+//        public void ctor_CurentValueIsZero()
+//        {
+//            Assert.That(_uut.CurrentValue, Is.Zero);
+//        }
 
-        [Test]
-        public void SimulateDisconnected_ReturnsDisconnected()
-        {
-            _uut.SimulateConnected(false);
-            Assert.That(_uut.Connected, Is.False);
-        }
+//        [Test]
+//        public void SimulateDisconnected_ReturnsDisconnected()
+//        {
+//            _uut.SimulateConnected(false);
+//            Assert.That(_uut.Connected, Is.False);
+//        }
 
-        [Test]
-        public void Started_WaitSomeTime_ReceivedSeveralValues()
-        {
-            int numValues = 0;
-            _uut.CurrentValueEvent += (o, args) => numValues++;
+//        [Test]
+//        public void Started_WaitSomeTime_ReceivedSeveralValues()
+//        {
+//            int numValues = 0;
+//            _uut.CurrentValueEvent += (o, args) => numValues++;
 
-            _uut.StartCharge();
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(1100);
+//            System.Threading.Thread.Sleep(1100);
 
-            Assert.That(numValues, Is.GreaterThan(4));
-        }
+//            Assert.That(numValues, Is.GreaterThan(4));
+//        }
 
-        [Test]
-        public void Started_WaitSomeTime_ReceivedChangedValue()
-        {
-            double lastValue = 1000;
-            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//        [Test]
+//        public void Started_WaitSomeTime_ReceivedChangedValue()
+//        {
+//            double lastValue = 1000;
+//            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
 
-            _uut.StartCharge();
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(300);
+//            System.Threading.Thread.Sleep(300);
 
-            Assert.That(lastValue, Is.LessThan(500.0));
-        }
+//            Assert.That(lastValue, Is.LessThan(500.0));
+//        }
 
-        [Test]
-        public void StartedNoEventReceiver_WaitSomeTime_PropertyChangedValue()
-        {
-            _uut.StartCharge();
+//        [Test]
+//        public void StartedNoEventReceiver_WaitSomeTime_PropertyChangedValue()
+//        {
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(300);
+//            System.Threading.Thread.Sleep(300);
 
-            Assert.That(_uut.CurrentValue, Is.LessThan(500.0));
-        }
+//            Assert.That(_uut.CurrentValue, Is.LessThan(500.0));
+//        }
 
-        [Test]
-        public void Started_WaitSomeTime_PropertyMatchesReceivedValue()
-        {
-            double lastValue = 1000;
-            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//        [Test]
+//        public void Started_WaitSomeTime_PropertyMatchesReceivedValue()
+//        {
+//            double lastValue = 1000;
+//            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
 
-            _uut.StartCharge();
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(1100);
+//            System.Threading.Thread.Sleep(1100);
 
-            Assert.That(lastValue, Is.EqualTo(_uut.CurrentValue));
-        }
+//            Assert.That(lastValue, Is.EqualTo(_uut.CurrentValue));
+//        }
 
 
-        [Test]
-        public void Started_SimulateOverload_ReceivesHighValue()
-        {
-            ManualResetEvent pause = new ManualResetEvent(false);
-            double lastValue = 0;
+//        [Test]
+//        public void Started_SimulateOverload_ReceivesHighValue()
+//        {
+//            ManualResetEvent pause = new ManualResetEvent(false);
+//            double lastValue = 0;
 
-            _uut.CurrentValueEvent += (o, args) =>
-            {
-                lastValue = args.Current;
-                pause.Set();
-            };
+//            _uut.CurrentValueEvent += (o, args) =>
+//            {
+//                lastValue = args.Current;
+//                pause.Set();
+//            };
 
-            // Start
-            _uut.StartCharge();
+//            // Start
+//            _uut.StartCharge();
 
-            // Next value should be high
-            _uut.SimulateOverload(true);
+//            // Next value should be high
+//            _uut.SimulateOverload(true);
 
-            // Reset event
-            pause.Reset();
+//            // Reset event
+//            pause.Reset();
 
-            // Wait for next tick, should send overloaded value
-            pause.WaitOne(300);
+//            // Wait for next tick, should send overloaded value
+//            pause.WaitOne(300);
 
-            Assert.That(lastValue, Is.GreaterThan(500.0));
-        }
+//            Assert.That(lastValue, Is.GreaterThan(500.0));
+//        }
 
-        [Test]
-        public void Started_SimulateDisconnected_ReceivesZero()
-        {
-            ManualResetEvent pause = new ManualResetEvent(false);
-            double lastValue = 1000;
+//        [Test]
+//        public void Started_SimulateDisconnected_ReceivesZero()
+//        {
+//            ManualResetEvent pause = new ManualResetEvent(false);
+//            double lastValue = 1000;
 
-            _uut.CurrentValueEvent += (o, args) =>
-            {
-                lastValue = args.Current;
-                pause.Set();
-            };
+//            _uut.CurrentValueEvent += (o, args) =>
+//            {
+//                lastValue = args.Current;
+//                pause.Set();
+//            };
 
 
-            // Start
-            _uut.StartCharge();
+//            // Start
+//            _uut.StartCharge();
 
-            // Next value should be zero
-            _uut.SimulateConnected(false);
+//            // Next value should be zero
+//            _uut.SimulateConnected(false);
 
-            // Reset event
-            pause.Reset();
+//            // Reset event
+//            pause.Reset();
 
-            // Wait for next tick, should send disconnected value
-            pause.WaitOne(300);
+//            // Wait for next tick, should send disconnected value
+//            pause.WaitOne(300);
 
-            Assert.That(lastValue, Is.Zero);
-        }
+//            Assert.That(lastValue, Is.Zero);
+//        }
 
-        [Test]
-        public void SimulateOverload_Start_ReceivesHighValueImmediately()
-        {
-            double lastValue = 0;
+//        [Test]
+//        public void SimulateOverload_Start_ReceivesHighValueImmediately()
+//        {
+//            double lastValue = 0;
 
-            _uut.CurrentValueEvent += (o, args) =>
-            {
-                lastValue = args.Current;
-            };
+//            _uut.CurrentValueEvent += (o, args) =>
+//            {
+//                lastValue = args.Current;
+//            };
 
-            // First value should be high
-            _uut.SimulateOverload(true);
+//            // First value should be high
+//            _uut.SimulateOverload(true);
 
-            // Start
-            _uut.StartCharge();
+//            // Start
+//            _uut.StartCharge();
 
-            // Should not wait for first tick, should send overload immediately
+//            // Should not wait for first tick, should send overload immediately
 
-            Assert.That(lastValue, Is.GreaterThan(500.0));
-        }
+//            Assert.That(lastValue, Is.GreaterThan(500.0));
+//        }
 
-        [Test]
-        public void SimulateDisconnected_Start_ReceivesZeroValueImmediately()
-        {
-            double lastValue = 1000;
+//        [Test]
+//        public void SimulateDisconnected_Start_ReceivesZeroValueImmediately()
+//        {
+//            double lastValue = 1000;
 
-            _uut.CurrentValueEvent += (o, args) =>
-            {
-                lastValue = args.Current;
-            };
+//            _uut.CurrentValueEvent += (o, args) =>
+//            {
+//                lastValue = args.Current;
+//            };
 
-            // First value should be high
-            _uut.SimulateConnected(false);
+//            // First value should be high
+//            _uut.SimulateConnected(false);
 
-            // Start
-            _uut.StartCharge();
+//            // Start
+//            _uut.StartCharge();
 
-            // Should not wait for first tick, should send zero immediately
+//            // Should not wait for first tick, should send zero immediately
 
-            Assert.That(lastValue, Is.Zero);
-        }
+//            Assert.That(lastValue, Is.Zero);
+//        }
 
-        [Test]
-        public void StopCharge_IsCharging_ReceivesZeroValue()
-        {
-            double lastValue = 1000;
-            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//        [Test]
+//        public void StopCharge_IsCharging_ReceivesZeroValue()
+//        {
+//            double lastValue = 1000;
+//            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
 
-            _uut.StartCharge();
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(300);
+//            System.Threading.Thread.Sleep(300);
 
-            _uut.StopCharge();
+//            _uut.StopCharge();
 
-            Assert.That(lastValue, Is.EqualTo(0.0));
-        }
+//            Assert.That(lastValue, Is.EqualTo(0.0));
+//        }
 
-        [Test]
-        public void StopCharge_IsCharging_PropertyIsZero()
-        {
-            _uut.StartCharge();
+//        [Test]
+//        public void StopCharge_IsCharging_PropertyIsZero()
+//        {
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(300);
+//            System.Threading.Thread.Sleep(300);
 
-            _uut.StopCharge();
+//            _uut.StopCharge();
 
-            Assert.That(_uut.CurrentValue, Is.EqualTo(0.0));
-        }
+//            Assert.That(_uut.CurrentValue, Is.EqualTo(0.0));
+//        }
 
-        [Test]
-        public void StopCharge_IsCharging_ReceivesNoMoreValues()
-        {
-            double lastValue = 1000;
-            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//        [Test]
+//        public void StopCharge_IsCharging_ReceivesNoMoreValues()
+//        {
+//            double lastValue = 1000;
+//            _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
 
-            _uut.StartCharge();
+//            _uut.StartCharge();
 
-            System.Threading.Thread.Sleep(300);
+//            System.Threading.Thread.Sleep(300);
 
-            _uut.StopCharge();
-            lastValue = 1000;
+//            _uut.StopCharge();
+//            lastValue = 1000;
 
-            // Wait for a tick
-            System.Threading.Thread.Sleep(300);
+//            // Wait for a tick
+//            System.Threading.Thread.Sleep(300);
 
-            // No new value received
-            Assert.That(lastValue, Is.EqualTo(1000.0));
-        }
+//            // No new value received
+//            Assert.That(lastValue, Is.EqualTo(1000.0));
+//        }
 
 
 
-    }
-    */
+//    }
+//    */
 
-        #endregion
-    }
-}
+//        #endregion
+//    }
+//}
 
     
-        /*
-                  #region ChargeControlTests
-                  [Test]
-              public void Test2()
-              {
-                  Assert.Pass();
-              }
-              #endregion
+//        /*
+//                  #region ChargeControlTests
+//                  [Test]
+//              public void Test2()
+//              {
+//                  Assert.Pass();
+//              }
+//              #endregion
              
-              #region DoorTests
-              [Test]
-              public void DoorLockedTest()
-              {
-                  IDoor uut = new Door();
-                  uut.DoorLock();
-                  Assert.That(uut.locked == true);
-              }
+//              #region DoorTests
+//              [Test]
+//              public void DoorLockedTest()
+//              {
+//                  IDoor uut = new Door();
+//                  uut.DoorLock();
+//                  Assert.That(uut.locked == true);
+//              }
               
-              public void DoorUnlockedTest()
-              {
-                  IDoor uut = new Door();
-                  uut.DoorUnlock();
-                  Assert.That(uut.locked == false);
-              }
+//              public void DoorUnlockedTest()
+//              {
+//                  IDoor uut = new Door();
+//                  uut.DoorUnlock();
+//                  Assert.That(uut.locked == false);
+//              }
       
-              public void DoorOpenedTest()
-              {
-                  IDoor uut = new Door();
-                  uut.DoorOpened();
-                  Assert.That(uut._open == true);
-              }
+//              public void DoorOpenedTest()
+//              {
+//                  IDoor uut = new Door();
+//                  uut.DoorOpened();
+//                  Assert.That(uut._open == true);
+//              }
               
-              public void DoorClosedTest()
-              {
-                  IDoor uut = new Door();
-                  uut.DoorClosed();
-                  Assert.That(uut._open == false);
-              }
+//              public void DoorClosedTest()
+//              {
+//                  IDoor uut = new Door();
+//                  uut.DoorClosed();
+//                  Assert.That(uut._open == false);
+//              }
       
-              #endregion
-          }
-          /*
-          #region Handout_tests
+//              #endregion
+//          }
+//          /*
+//          #region Handout_tests
       
           
       
-          [TestFixture]
-          public class TestUsbChargerSimulator
-          {
+//          [TestFixture]
+//          public class TestUsbChargerSimulator
+//          {
               
-              private UsbChargerSimulator _uut;
-              [SetUp]
-              public void Setup()
-              {
-                  _uut = new UsbChargerSimulator();
-              }
+//              private UsbChargerSimulator _uut;
+//              [SetUp]
+//              public void Setup()
+//              {
+//                  _uut = new UsbChargerSimulator();
+//              }
               
-              [Test]
-              public void ctor_IsConnected()
-              {
-                  Assert.That(_uut.Connected, Is.True);
-              }
+//              [Test]
+//              public void ctor_IsConnected()
+//              {
+//                  Assert.That(_uut.Connected, Is.True);
+//              }
       
-              [Test]
-              public void ctor_CurentValueIsZero()
-              {
-                  Assert.That(_uut.CurrentValue, Is.Zero);
-              }
+//              [Test]
+//              public void ctor_CurentValueIsZero()
+//              {
+//                  Assert.That(_uut.CurrentValue, Is.Zero);
+//              }
       
-              [Test]
-              public void SimulateDisconnected_ReturnsDisconnected()
-              {
-                  _uut.SimulateConnected(false);
-                  Assert.That(_uut.Connected, Is.False);
-              }
+//              [Test]
+//              public void SimulateDisconnected_ReturnsDisconnected()
+//              {
+//                  _uut.SimulateConnected(false);
+//                  Assert.That(_uut.Connected, Is.False);
+//              }
       
-              [Test]
-              public void Started_WaitSomeTime_ReceivedSeveralValues()
-              {
-                  int numValues = 0;
-                  _uut.CurrentValueEvent += (o, args) => numValues++;
+//              [Test]
+//              public void Started_WaitSomeTime_ReceivedSeveralValues()
+//              {
+//                  int numValues = 0;
+//                  _uut.CurrentValueEvent += (o, args) => numValues++;
       
-                  _uut.StartCharge();
+//                  _uut.StartCharge();
       
-                  System.Threading.Thread.Sleep(1100);
+//                  System.Threading.Thread.Sleep(1100);
       
-                  Assert.That(numValues, Is.GreaterThan(4));
-              }
+//                  Assert.That(numValues, Is.GreaterThan(4));
+//              }
       
-              [Test]
-              public void Started_WaitSomeTime_ReceivedChangedValue()
-              {
-                  double lastValue = 1000;
-                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//              [Test]
+//              public void Started_WaitSomeTime_ReceivedChangedValue()
+//              {
+//                  double lastValue = 1000;
+//                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
       
-                  _uut.StartCharge();
+//                  _uut.StartCharge();
       
-                  System.Threading.Thread.Sleep(300);
+//                  System.Threading.Thread.Sleep(300);
       
-                  Assert.That(lastValue, Is.LessThan(500.0));
-              }
+//                  Assert.That(lastValue, Is.LessThan(500.0));
+//              }
       
-              [Test]
-              public void StartedNoEventReceiver_WaitSomeTime_PropertyChangedValue()
-              {
-                  _uut.StartCharge();
+//              [Test]
+//              public void StartedNoEventReceiver_WaitSomeTime_PropertyChangedValue()
+//              {
+//                  _uut.StartCharge();
       
-                  System.Threading.Thread.Sleep(300);
+//                  System.Threading.Thread.Sleep(300);
       
-                  Assert.That(_uut.CurrentValue, Is.LessThan(500.0));
-              }
+//                  Assert.That(_uut.CurrentValue, Is.LessThan(500.0));
+//              }
       
-              [Test]
-              public void Started_WaitSomeTime_PropertyMatchesReceivedValue()
-              {
-                  double lastValue = 1000;
-                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+//              [Test]
+//              public void Started_WaitSomeTime_PropertyMatchesReceivedValue()
+//              {
+//                  double lastValue = 1000;
+//                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
       
-                  _uut.StartCharge();
+//                  _uut.StartCharge();
       
-                  System.Threading.Thread.Sleep(1100);
+//                  System.Threading.Thread.Sleep(1100);
       
-                  Assert.That(lastValue, Is.EqualTo(_uut.CurrentValue));
-              }
-      
-      
-              [Test]
-              public void Started_SimulateOverload_ReceivesHighValue()
-              {
-                  ManualResetEvent pause = new ManualResetEvent(false);
-                  double lastValue = 0;
-      
-                  _uut.CurrentValueEvent += (o, args) =>
-                  {
-                      lastValue = args.Current;
-                      pause.Set();
-                  };
-      
-                  // Start
-                  _uut.StartCharge();
-      
-                  // Next value should be high
-                  _uut.SimulateOverload(true);
-      
-                  // Reset event
-                  pause.Reset();
-      
-                  // Wait for next tick, should send overloaded value
-                  pause.WaitOne(300);
-      
-                  Assert.That(lastValue, Is.GreaterThan(500.0));
-              }
-      
-              [Test]
-              public void Started_SimulateDisconnected_ReceivesZero()
-              {
-                  ManualResetEvent pause = new ManualResetEvent(false);
-                  double lastValue = 1000;
-      
-                  _uut.CurrentValueEvent += (o, args) =>
-                  {
-                      lastValue = args.Current;
-                      pause.Set();
-                  };
+//                  Assert.That(lastValue, Is.EqualTo(_uut.CurrentValue));
+//              }
       
       
-                  // Start
-                  _uut.StartCharge();
+//              [Test]
+//              public void Started_SimulateOverload_ReceivesHighValue()
+//              {
+//                  ManualResetEvent pause = new ManualResetEvent(false);
+//                  double lastValue = 0;
       
-                  // Next value should be zero
-                  _uut.SimulateConnected(false);
+//                  _uut.CurrentValueEvent += (o, args) =>
+//                  {
+//                      lastValue = args.Current;
+//                      pause.Set();
+//                  };
       
-                  // Reset event
-                  pause.Reset();
+//                  // Start
+//                  _uut.StartCharge();
       
-                  // Wait for next tick, should send disconnected value
-                  pause.WaitOne(300);
+//                  // Next value should be high
+//                  _uut.SimulateOverload(true);
       
-                  Assert.That(lastValue, Is.Zero);
-              }
+//                  // Reset event
+//                  pause.Reset();
       
-              [Test]
-              public void SimulateOverload_Start_ReceivesHighValueImmediately()
-              {
-                  double lastValue = 0;
+//                  // Wait for next tick, should send overloaded value
+//                  pause.WaitOne(300);
       
-                  _uut.CurrentValueEvent += (o, args) =>
-                  {
-                      lastValue = args.Current;
-                  };
+//                  Assert.That(lastValue, Is.GreaterThan(500.0));
+//              }
       
-                  // First value should be high
-                  _uut.SimulateOverload(true);
+//              [Test]
+//              public void Started_SimulateDisconnected_ReceivesZero()
+//              {
+//                  ManualResetEvent pause = new ManualResetEvent(false);
+//                  double lastValue = 1000;
       
-                  // Start
-                  _uut.StartCharge();
-      
-                  // Should not wait for first tick, should send overload immediately
-      
-                  Assert.That(lastValue, Is.GreaterThan(500.0));
-              }
-      
-              [Test]
-              public void SimulateDisconnected_Start_ReceivesZeroValueImmediately()
-              {
-                  double lastValue = 1000;
-      
-                  _uut.CurrentValueEvent += (o, args) =>
-                  {
-                      lastValue = args.Current;
-                  };
-      
-                  // First value should be high
-                  _uut.SimulateConnected(false);
-      
-                  // Start
-                  _uut.StartCharge();
-      
-                  // Should not wait for first tick, should send zero immediately
-      
-                  Assert.That(lastValue, Is.Zero);
-              }
-      
-              [Test]
-              public void StopCharge_IsCharging_ReceivesZeroValue()
-              {
-                  double lastValue = 1000;
-                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
-      
-                  _uut.StartCharge();
-      
-                  System.Threading.Thread.Sleep(300);
-      
-                  _uut.StopCharge();
-      
-                  Assert.That(lastValue, Is.EqualTo(0.0));
-              }
-      
-              [Test]
-              public void StopCharge_IsCharging_PropertyIsZero()
-              {
-                  _uut.StartCharge();
-      
-                  System.Threading.Thread.Sleep(300);
-      
-                  _uut.StopCharge();
-      
-                  Assert.That(_uut.CurrentValue, Is.EqualTo(0.0));
-              }
-      
-              [Test]
-              public void StopCharge_IsCharging_ReceivesNoMoreValues()
-              {
-                  double lastValue = 1000;
-                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
-      
-                  _uut.StartCharge();
-      
-                  System.Threading.Thread.Sleep(300);
-      
-                  _uut.StopCharge();
-                  lastValue = 1000;
-      
-                  // Wait for a tick
-                  System.Threading.Thread.Sleep(300);
-      
-                  // No new value received
-                  Assert.That(lastValue, Is.EqualTo(1000.0));
-              }
+//                  _uut.CurrentValueEvent += (o, args) =>
+//                  {
+//                      lastValue = args.Current;
+//                      pause.Set();
+//                  };
       
       
+//                  // Start
+//                  _uut.StartCharge();
       
-          }
+//                  // Next value should be zero
+//                  _uut.SimulateConnected(false);
+      
+//                  // Reset event
+//                  pause.Reset();
+      
+//                  // Wait for next tick, should send disconnected value
+//                  pause.WaitOne(300);
+      
+//                  Assert.That(lastValue, Is.Zero);
+//              }
+      
+//              [Test]
+//              public void SimulateOverload_Start_ReceivesHighValueImmediately()
+//              {
+//                  double lastValue = 0;
+      
+//                  _uut.CurrentValueEvent += (o, args) =>
+//                  {
+//                      lastValue = args.Current;
+//                  };
+      
+//                  // First value should be high
+//                  _uut.SimulateOverload(true);
+      
+//                  // Start
+//                  _uut.StartCharge();
+      
+//                  // Should not wait for first tick, should send overload immediately
+      
+//                  Assert.That(lastValue, Is.GreaterThan(500.0));
+//              }
+      
+//              [Test]
+//              public void SimulateDisconnected_Start_ReceivesZeroValueImmediately()
+//              {
+//                  double lastValue = 1000;
+      
+//                  _uut.CurrentValueEvent += (o, args) =>
+//                  {
+//                      lastValue = args.Current;
+//                  };
+      
+//                  // First value should be high
+//                  _uut.SimulateConnected(false);
+      
+//                  // Start
+//                  _uut.StartCharge();
+      
+//                  // Should not wait for first tick, should send zero immediately
+      
+//                  Assert.That(lastValue, Is.Zero);
+//              }
+      
+//              [Test]
+//              public void StopCharge_IsCharging_ReceivesZeroValue()
+//              {
+//                  double lastValue = 1000;
+//                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+      
+//                  _uut.StartCharge();
+      
+//                  System.Threading.Thread.Sleep(300);
+      
+//                  _uut.StopCharge();
+      
+//                  Assert.That(lastValue, Is.EqualTo(0.0));
+//              }
+      
+//              [Test]
+//              public void StopCharge_IsCharging_PropertyIsZero()
+//              {
+//                  _uut.StartCharge();
+      
+//                  System.Threading.Thread.Sleep(300);
+      
+//                  _uut.StopCharge();
+      
+//                  Assert.That(_uut.CurrentValue, Is.EqualTo(0.0));
+//              }
+      
+//              [Test]
+//              public void StopCharge_IsCharging_ReceivesNoMoreValues()
+//              {
+//                  double lastValue = 1000;
+//                  _uut.CurrentValueEvent += (o, args) => lastValue = args.Current;
+      
+//                  _uut.StartCharge();
+      
+//                  System.Threading.Thread.Sleep(300);
+      
+//                  _uut.StopCharge();
+//                  lastValue = 1000;
+      
+//                  // Wait for a tick
+//                  System.Threading.Thread.Sleep(300);
+      
+//                  // No new value received
+//                  Assert.That(lastValue, Is.EqualTo(1000.0));
+//              }
+      
+      
+      
+//          }
           
-          #endregion
+//          #endregion
       
-          */
-    }
-}
+//          */
+//    }
+//}

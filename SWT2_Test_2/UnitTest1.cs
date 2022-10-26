@@ -30,9 +30,11 @@ namespace SWT2_Test
 
         [Test]
 
-        public void GetRfidTag()
+        public void GetRfidTag(id)
         {
-            IRFIDReader uut = new RFIDReader()
+            IRFIDReader uut = new RFIDReader();
+
+            Assert.
         }
         
 

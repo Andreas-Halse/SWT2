@@ -5,21 +5,24 @@ namespace ClassLibrary
    
     public class RFIDReader : IRFIDReader
     {
-        private int _id;
 
-        public void RfidDetected(int id)
+        private int _ID;
+        
+        public void RFIDTagReader(int id)
         {
-            _id = id;
+            _ID = id;
         }
 
-        public event EventHandler<RFIDReader> RfidDeteced;
+        //Event starts
+        public event EventHandler <RFIDEventArgs> RfidDeteced;
+
+       
+        protected virtual void OnRfidDetected()
+        {
+          RfidDeteced?.Invoke(this, new RFIDEventArgs() {id = this._ID});
+        }
+// Event ends
     }
 
-    interface IRFIDReader
-    {
-
-    }
-
-
-
+    
 }

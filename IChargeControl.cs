@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    interface IChargeControl
+    public interface IChargeControl
     {
         
     }

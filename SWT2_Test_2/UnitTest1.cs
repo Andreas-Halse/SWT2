@@ -367,47 +367,7 @@ namespace SWT2_Test
         }
 
         #endregion
-
-        #region DoorTests
-
-        [Test]
-        public void DoorLockedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorLock();
-            Assert.That(uut.locked == true);
-        }
-
-        public void DoorUnlockedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorUnlock();
-            Assert.That(uut.locked == false);
-        }
-
-        public void DoorOpenedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorOpened();
-            Assert.That(uut._open == true);
-        }
-
-        public void DoorClosedTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorClosed();
-            Assert.That(uut._open == false);
-        }
-
-        public void DoorStatusEventTest()
-        {
-            IDoor uut = new Door();
-            uut.DoorClosed();
-            //Assert.That();
-        }
-
         
-        #endregion
 
 
         #region Handout_tests

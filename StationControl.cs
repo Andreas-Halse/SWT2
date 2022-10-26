@@ -7,7 +7,7 @@ namespace ClassLibrary
     public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
-        private enum LadeskabState
+        public enum LadeskabState
         {
             Available,
             Locked,
@@ -24,8 +24,7 @@ namespace ClassLibrary
 
         private ILogFile _logFile;
 
-        // Her mangler constructor
-        StationControl(IChargeControl charger, IDoor door, IDisplay display, RFIDReader rfidReader, ILogFile logfile )
+        public StationControl(IChargeControl charger, IDoor door, IDisplay display, RFIDReader rfidReader, ILogFile logfile )
      
         {
             _RFIDReader = rfidReader;
@@ -41,17 +40,17 @@ namespace ClassLibrary
 
         public void OnDoorStateChange(object? door, DoorEventArgs doorArgs)
         {
-            if (doorArgs.locked)
+            if (doorArgs.open)
             {
                 //hvis door er open
                 _display.LoadRFID();
-                _state= LadeskabState.Available;
+                _state = LadeskabState.DoorOpen;
             }
             else
             {
                 //hvis door er closed
                 _display.Connection();
-                _state = LadeskabState.DoorOpen;
+                _state = LadeskabState.Available;
             }
         }
 

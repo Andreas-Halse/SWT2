@@ -173,6 +173,23 @@ namespace SWT2_Test
         #endregion
 
         #region StationControlTests
+
+        [TestCase(true, StationControl.LadeskabState.DoorOpen)]
+        [TestCase(false, StationControl.LadeskabState.Available)]
+        public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
+        {
+            /*IChargeControl stubChargeControl = new StubChargeControl();
+            IDisplay stubDisplay = new StubDisplay();
+            IRFIDReader stubRfidReader = new StubRfidReader();
+            ILogFile stubLogFile = new StubLogFile();
+            IDoor stubDoor = new StubDoor();
+
+            StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
+
+
+
+            Assert.AreSame(uut.DoorState, expectedState);*/
+        }
         #endregion
 
         #region ChargeControlTests

@@ -195,7 +195,172 @@ namespace SWT2_Test
 
         #region ChargeControlTests
 
+        
+       /* [Test]
+        public void RFIDTagReader()
+        {
+            int id = 1234;
+            IRFIDReader uut = new RFIDReader();
+
+            Assert.
+        }*/
+
+
+        #endregion
+        
+        #region DisplayTests
+       
         [Test]
+        
+        public void ConnectionTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.Connection();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is connected\r\n");
+            
+        }
+
+        [Test]
+        public void LoadRFIDTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.LoadRFID();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Load your RFID\r\n");
+        }
+
+        [Test]
+        public void ConnectionErrorTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.ConnectionError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
+        }
+
+        [Test]
+        public void OccupiedTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.Occupied();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Charger is occupied\r\n");
+        }
+
+        [Test]
+        public void RFIDErrorTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.RFIDError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
+        }
+
+        [Test]
+        public void RemovePhoneTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.RemovePhone();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Please remove phone\r\n");
+        }
+
+        [Test]
+        public void FullyChargedTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.FullyCharged();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is fully charged\r\n");
+        }
+
+        [Test]
+        public void PhoneChargingTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.PhoneCharging();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is charging\r\n");
+        }
+
+        [Test]
+        public void ChargeErrorTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+
+            IDisplay uut = new Display();
+            uut.ChargeError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
+        }
+        #endregion
+
+        #region StationControlTests
+
+        [TestCase(true, StationControl.LadeskabState.DoorOpen)]
+        [TestCase(false, StationControl.LadeskabState.Available)]
+        public void DoorStateChangeEvent(bool doorState, StationControl.LadeskabState expectedState)
+        {
+            /*IChargeControl stubChargeControl = new StubChargeControl();
+            IDisplay stubDisplay = new StubDisplay();
+            IRFIDReader stubRfidReader = new StubRfidReader();
+            ILogFile stubLogFile = new StubLogFile();
+            IDoor stubDoor = new StubDoor();
+
+            StationControl uut = new StationControl(stubChargeControl, stubDoor, stubDisplay, stubRfidReader, stubLogFile);
+
+
+
+            Assert.AreSame(uut.DoorState, expectedState);*/
+    }
+#endregion
+
+    #region ChargeControlTests
+    [Test]
         public void Test2()
         {
             Assert.Pass();

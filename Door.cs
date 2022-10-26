@@ -8,25 +8,14 @@ namespace ClassLibrary
 {
     public class Door : IDoor
     {
-        //event stuff start e
-        
-        //attatch - subject/publisher side
-        
-        public class DoorEventArgs : EventArgs
-        {
-            public DoorStatus doorStatus { get; set; }
-        }
-        
-        private DoorStatus currentDoorStatus;
+        //event stuff start
+        public event EventHandler<DoorEventArgs> DoorStateChange;
 
-        public event EventHandler<DoorEventArgs> DoorStatusEvent;
-        //update - subject/publisher side
-
-        private OnNewDoorStatus()
+        private void OnDoorStateChange()
         {
-            DoorStatusEvent?.Invoke(this, new DoorStatusEventArgs() {DoorStatus = currentDoorStatus});
+            DoorStateChange?.Invoke(this, new DoorEventArgs() {locked = this.locked});
         }
-        
+
         //event stuff end
         
         public bool locked { get; set; }
@@ -39,13 +28,15 @@ namespace ClassLibrary
         public void DoorUnlock()
         {
             //Give message to StationControl that door is unlocked.
-            
+            locked = false;
+            OnDoorStateChange();
         }
 
         public void DoorLock()
         {
             //Give message to StationControl that door is locked. 
-            
+            locked = true;
+            OnDoorStateChange();
         }
     }
 }

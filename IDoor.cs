@@ -16,7 +16,7 @@ namespace ClassLibrary
     {
         public event EventHandler<DoorEventArgs> DoorStateChange;
 
-        bool open { get; private set; }
+        bool _open { get; set; }
         bool locked { get; }
         void DoorOpened();
         void DoorClosed();

@@ -14,11 +14,12 @@ namespace ClassLibrary
 
     public interface IRFIDReader
     {
-        public event EventHandler<RFIDEventArgs> RfidDeteced;
+        public event EventHandler<RFIDEventArgs> RfidDetected;
 
         void RFIDTagReader(int id);
 
     }
+    
     
     
 }

@@ -14,7 +14,7 @@ namespace SWT2_Test
         [SetUp]
         public void Setup()
         {
-            //IChargeControl mockCharge= new MockChargeControl();
+            
 
         }
 
@@ -29,16 +29,7 @@ namespace SWT2_Test
         #region ChargeControlTests
 
         
-       /* [Test]
-        public void RFIDTagReader()
-        {
-            int id = 1234;
-            IRFIDReader uut = new RFIDReader();
-
-            Assert.
-        }*/
-
-
+      
         #endregion
         
         

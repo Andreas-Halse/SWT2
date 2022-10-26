@@ -8,13 +8,26 @@ namespace ClassLibrary
 {
     public class Door : IDoor
     {
-
+        //event stuff start
+        
+        //attatch - subject/publisher side
+        
         public class DoorEventArgs : EventArgs
         {
             public DoorStatus doorStatus { get; set; }
         }
-
+        
         private DoorStatus currentDoorStatus;
+
+        public event EventHandler<DoorEventArgs> DoorStatusEvent;
+        //update - subject/publisher side
+
+        private OnNewDoorStatus()
+        {
+            DoorStatusEvent?.Invoke(this, new DoorStatusEventArgs() {DoorStatus = currentDoorStatus});
+        }
+        
+        //event stuff end
         
         public bool locked { get; set; }
 

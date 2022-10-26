@@ -174,9 +174,30 @@ namespace SWT2_Test
         [Test]
         public void DoorLockedTest()
         {
-            IDoor door1 = new Door();
-            bool test = door1.locked;
-            Assert.That(test);
+            IDoor uut = new Door();
+            uut.DoorLock();
+            Assert.That(uut.locked == true);
+        }
+        
+        public void DoorUnlockedTest()
+        {
+            IDoor uut = new Door();
+            uut.DoorUnlock();
+            Assert.That(uut.locked == false);
+        }
+
+        public void DoorOpenedTest()
+        {
+            IDoor uut = new Door();
+            uut.DoorOpened();
+            Assert.That(uut._open == true);
+        }
+        
+        public void DoorClosedTest()
+        {
+            IDoor uut = new Door();
+            uut.DoorClosed();
+            Assert.That(uut._open == false);
         }
 
         #endregion

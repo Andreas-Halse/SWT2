@@ -17,7 +17,7 @@ namespace ClassLibrary
         }
         //event stuff end
         
-        Door()  //door constructor
+        public Door()  //door constructor
         {
             _open = false; 
         }

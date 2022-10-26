@@ -11,10 +11,17 @@ namespace ClassLibrary
 
         public class DoorEventArgs : EventArgs
         {
+<<<<<<< Updated upstream
             //public DoorStatus doorStatus { get; set; }
         }
 
        // private DoorStatus currentDoorStatus;
+=======
+          //  public DoorStatus doorStatus { get; set; }
+        }
+
+        //private DoorStatus currentDoorStatus;
+>>>>>>> Stashed changes
         
         public bool locked { get; set; }
 

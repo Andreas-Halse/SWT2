@@ -30,16 +30,6 @@ namespace SWT2_Test
         #region DisplayTests
 
         [Test]
-        public void outputTest()
-        {
-            var stringwriter = new StringWriter();
-            Console.SetOut(stringwriter);
-            string test = "test";
-            Console.WriteLine(test);
-            // assert that stringwriter now contains the correct string
-        }
-
-        [Test]
         public void ConnectionTest()
         {
             var stringwriter = new StringWriter();
@@ -187,7 +177,7 @@ namespace SWT2_Test
 
         #endregion
     }
-
+    /*
     #region Handout_tests
 
     
@@ -195,13 +185,14 @@ namespace SWT2_Test
     [TestFixture]
     public class TestUsbChargerSimulator
     {
+        
         private UsbChargerSimulator _uut;
         [SetUp]
         public void Setup()
         {
             _uut = new UsbChargerSimulator();
         }
-
+        
         [Test]
         public void ctor_IsConnected()
         {
@@ -421,5 +412,5 @@ namespace SWT2_Test
     
     #endregion
 
-
+    */
     }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWT2", "SWT2.csproj", "{B73
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWT2_Console", "SWT2_Console\SWT2_Console.csproj", "{96D281BA-E13C-4324-B128-E5EDB5DFD14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWT2_Test", "SWT2_Test\SWT2_Test.csproj", "{EED85D35-A7DD-4659-B8E4-3C14F1B717B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWT2_Test", "..\SWT2_Test_\SWT2_Test.csproj", "{AF04FD9D-EFA8-4C1E-9B0D-AA31B781AC64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{96D281BA-E13C-4324-B128-E5EDB5DFD14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D281BA-E13C-4324-B128-E5EDB5DFD14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D281BA-E13C-4324-B128-E5EDB5DFD14B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EED85D35-A7DD-4659-B8E4-3C14F1B717B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EED85D35-A7DD-4659-B8E4-3C14F1B717B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EED85D35-A7DD-4659-B8E4-3C14F1B717B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EED85D35-A7DD-4659-B8E4-3C14F1B717B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF04FD9D-EFA8-4C1E-9B0D-AA31B781AC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF04FD9D-EFA8-4C1E-9B0D-AA31B781AC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF04FD9D-EFA8-4C1E-9B0D-AA31B781AC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF04FD9D-EFA8-4C1E-9B0D-AA31B781AC64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

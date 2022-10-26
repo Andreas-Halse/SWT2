@@ -28,7 +28,7 @@ namespace SWT2_Test
 
         #region RFIDReaderTests
 
-       /* [Test]
+        [Test]
 
         public void RFIDTagReader()
         {
@@ -37,12 +37,12 @@ namespace SWT2_Test
 
             Assert.
         }
-        
+
 
         #endregion
-
+        /*
         #region DisplayTests
-
+       
         [Test]
         
         public void ConnectionTest()
@@ -189,11 +189,11 @@ namespace SWT2_Test
 
 
             Assert.AreSame(uut.DoorState, expectedState);*/
-        }
-        #endregion
+    }
+#endregion
 
-        #region ChargeControlTests
-        [Test]
+    #region ChargeControlTests
+    [Test]
         public void Test2()
         {
             Assert.Pass();

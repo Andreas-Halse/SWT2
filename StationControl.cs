@@ -1,5 +1,7 @@
 ﻿
 
+using SWT2;
+
 namespace ClassLibrary
 {
     public class StationControl
@@ -18,7 +20,7 @@ namespace ClassLibrary
         private int _oldId;
         private IDoor _door;
 
-        private string logFile = "logfile.txt"; // Navnet på systemets log-fil
+        
 
         // Her mangler constructor
         StationControl(IChargeControl charger, IDoor door)
@@ -26,6 +28,7 @@ namespace ClassLibrary
             _charger = charger;
             _door = door;
             _state = LadeskabState.Available;
+            
         }
 
         /*
@@ -41,10 +44,7 @@ namespace ClassLibrary
                         _door.LockDoor();
                         _charger.StartCharge();
                         _oldId = id;
-                        using (var writer = File.AppendText(logFile))
-                        {
-                            writer.WriteLine(DateTime.Now + ": Skab låst med RFID: {0}", id);
-                        }
+                        logFile.logDoorLocked(id);
 
                         Console.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
                         _state = LadeskabState.Locked;

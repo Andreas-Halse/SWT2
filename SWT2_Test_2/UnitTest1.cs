@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-
-
 using ClassLibrary;
 using NUnit.Framework;
 using SWT2;
@@ -42,7 +40,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is connected\r\n");
+            Assert.AreEqual(actulstring, "Please connect phone\r\n");
             
         }
 
@@ -57,7 +55,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Load your RFID\r\n");
+            Assert.AreEqual(actulstring, "Load your RFID\r\n");
         }
 
         [Test]
@@ -71,7 +69,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
+            Assert.AreEqual(actulstring, "Phone is NOT connected - an error occurred\r\n");
         }
 
         [Test]
@@ -85,7 +83,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Charger is occupied\r\n");
+            Assert.AreEqual(actulstring, "Charger is occupied\r\n");
         }
 
         [Test]
@@ -99,7 +97,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
+            Assert.AreEqual(actulstring, "RFID not loaded - an error occurred\r\n");
         }
 
         [Test]
@@ -113,7 +111,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Please remove phone\r\n");
+            Assert.AreEqual(actulstring, "Please remove phone\r\n");
         }
 
         [Test]
@@ -127,7 +125,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is fully charged\r\n");
+            Assert.AreEqual(actulstring, "Phone is fully charged\r\n");
         }
 
         [Test]
@@ -141,7 +139,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is charging\r\n");
+            Assert.AreEqual(actulstring, "Phone is charging\r\n");
         }
 
         [Test]
@@ -155,7 +153,7 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
+            Assert.AreEqual(actulstring, "Phone is NOT Charging - an error occurred\r\n");
         }
         #endregion
 

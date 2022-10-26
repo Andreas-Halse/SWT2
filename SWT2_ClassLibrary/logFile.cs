@@ -13,7 +13,7 @@ namespace SWT2
 
     }
 
-    internal class logFile : ILogFile
+    public class logFile : ILogFile
     {
         public void logDoorLocked(int id)
         {

@@ -8,7 +8,7 @@ namespace ClassLibrary
 {
     public class Door : IDoor
     {
-        //event stuff start
+        //event stuff start e
         
         //attatch - subject/publisher side
         

@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace ClassLibrary
 {
-    interface IRFIDReader
-    {
-        
-    }
+   
     public class RFIDReader : IRFIDReader
     {
+        private int _id;
+
+        public void RfidDetected(int id)
+        {
+            _id = id;
+        }
+
+        public event EventHandler<RFIDReader> RfidDeteced;
     }
+
+    interface IRFIDReader
+    {
+
+    }
+
 
 
 }

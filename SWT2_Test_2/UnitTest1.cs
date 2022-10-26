@@ -26,7 +26,17 @@ namespace SWT2_Test
         }
 
 
+        #region RFIDReaderTests
 
+        [Test]
+
+        public void GetRfidTag()
+        {
+            IRFIDReader uut = new RFIDReader()
+        }
+        
+
+        #endregion
 
         #region DisplayTests
 

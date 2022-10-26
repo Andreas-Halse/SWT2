@@ -11,7 +11,7 @@ namespace ClassLibrary
         //event stuff start
         public event EventHandler<DoorEventArgs> DoorStateChange;
 
-        private void OnDoorStateChange()
+        protected virtual void OnDoorStateChange()
         {
             DoorStateChange?.Invoke(this, new DoorEventArgs() {locked = this.locked});
         }

@@ -17,17 +17,32 @@ namespace ClassLibrary
         private IChargeControl _charger;
         private int _oldId;
         private IDoor _door;
+        private IDisplay _display;
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
-        StationControl(IChargeControl charger, IDoor door)
+        StationControl(IChargeControl charger, IDoor door, IDisplay display)
         {
             _charger = charger;
             _door = door;
+            _display = display;
             _state = LadeskabState.Available;
+            _door.DoorStateChange += HandleDoorStateChange;
         }
 
+        public void HandleDoorStateChange(bool locked)
+        {
+            if (locked)
+            {
+                _display.LoadRFID();
+            }
+            else
+            {
+                _display.Connection();
+            }
+        }
+        
         /*
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)

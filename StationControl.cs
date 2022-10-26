@@ -72,7 +72,7 @@ namespace ClassLibrary
                 _door.DoorLock();
                 _oldId = rfidArgs.id;
 
-                _logFile.LogDoorLocked(_oldId);
+                //_logFile.LogDoorLocked(_oldId);
 
                 _state = LadeskabState.Locked;
             }
@@ -84,7 +84,7 @@ namespace ClassLibrary
                 {
                     _charger.StopCharge();
                     _door.DoorUnlock();
-                    _logFile.LogDoorUnlocked(rfidArgs.id);
+                    //_logFile.LogDoorUnlocked(rfidArgs.id);
                     _state = LadeskabState.Available;
                     _display.RemovePhone();
                 }

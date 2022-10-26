@@ -1,5 +1,7 @@
 ﻿
 
+using SWT2;
+
 namespace ClassLibrary
 {
     public class StationControl
@@ -14,35 +16,90 @@ namespace ClassLibrary
 
         // Her mangler flere member variable
         private LadeskabState _state;
-        private IChargeControl _charger;
+        private IUsbCharger _charger;
         private int _oldId;
         private IDoor _door;
         private IDisplay _display;
+        private RFIDReader _RFIDReader;
 
-        private string logFile = "logfile.txt"; // Navnet på systemets log-fil
+        private ILogFile _logFile;
 
         // Her mangler constructor
-        StationControl(IChargeControl charger, IDoor door, IDisplay display)
+        StationControl(IUsbCharger charger, IDoor door, IDisplay display, RFIDReader rfidReader, ILogFile logfile )
+     
         {
+            _RFIDReader = rfidReader;
+            _logFile = logfile;
             _charger = charger;
             _door = door;
             _display = display;
             _state = LadeskabState.Available;
-            _door.DoorStateChange += HandleDoorStateChange;
+            _door.DoorStateChange += OnDoorStateChange;
+            _RFIDReader.RFIDDetected += OnRFIDDetected;
+
         }
 
-        public void HandleDoorStateChange(bool locked)
+        public void OnDoorStateChange(object? door, DoorEventArgs doorArgs)
         {
-            if (locked)
+            if (doorArgs.locked)
             {
                 _display.LoadRFID();
+                _state= LadeskabState.Available;
             }
             else
             {
                 _display.Connection();
+                _state = LadeskabState.DoorOpen;
             }
         }
-        
+
+        public void OnRFIDDetected(object? rfidReader, RFIDDetectedEventArgs rfidArgs)
+        {
+            
+            
+            if (_state == LadeskabState.Available)
+            {
+                if (!_charger.Connected)
+                {
+                    _display.ConnectionError();
+                    return;
+                }
+                _charger.StartCharge();
+
+                _door.DoorLock();
+                _oldId = rfidArgs.id;
+
+                _logFile.LogDoorLocked(_oldId);
+
+                _state = LadeskabState.Locked;
+            }
+            else if(_state ==LadeskabState.Locked)
+            {
+                if (checkId(rfidArgs.id))
+                {
+                    _charger.StopCharge();
+                    _door.DoorUnlock();
+                    _logFile.LogDoorUnlocked(rfidArgs.id);
+                    _state = LadeskabState.Available;
+                }
+            }
+            
+        }
+
+        private bool checkId(int id)
+        {
+            if (id == _oldId)
+            {
+                
+                return true;
+            }
+            else
+            {
+                _display.RFIDError();
+                return false;
+            }
+        }
+
         /*
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)

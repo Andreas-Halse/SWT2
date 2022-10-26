@@ -24,7 +24,7 @@ namespace SWT2_Test_2
             _uut.RFIDTagReader(2945);
 
             // Set up an event listener to check the event occurrence and event data
-            _uut.RfidDeteced +=
+            _uut.RfidDetected +=
                 (o, args) => { _receivedEventArgs = args; };
         }
 

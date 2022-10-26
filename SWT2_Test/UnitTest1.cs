@@ -50,26 +50,50 @@ namespace SWT2_Test
 
             string actulstring = stringwriter.ToString();
 
-            Assert.Equals(actulstring, "Phone is connected");
-            // Assert that stringwriter has the correct value
+            Assert.Equals(actulstring, "Phone is connected\r\n");
+            
         }
 
         [Test]
         public void LoadRFIDTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.LoadRFID();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Load your RFID\r\n");
         }
 
         [Test]
         public void ConnectionErrorTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.ConnectionError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is NOT connected - an error occurred\r\n");
         }
 
         [Test]
         public void OccupiedTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.Occupied();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Charger is occupied\r\n");
         }
 
         [Test]
@@ -101,7 +125,7 @@ namespace SWT2_Test
         {
 
         }
-        #endregion DisplayTests
+        #endregion
 
 
         #region ChargeControlTests
@@ -354,7 +378,8 @@ namespace SWT2_Test
 
 
     }
+    
     #endregion
 
 
-}
+    }

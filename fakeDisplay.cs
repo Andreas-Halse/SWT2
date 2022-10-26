@@ -1,33 +1,20 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary;
 
-namespace ClassLibrary
+
+namespace SWT2
 {
-    public interface IDisplay
+    internal class fakeDisplay : IDisplay
     {
-        void Connection();
-        void LoadRFID();
-        void ConnectionError();
-        void Occupied();
-        void RFIDError();
-        void RemovePhone();
-        void FullyCharged();
-        void PhoneCharging();
-        void ChargeError();
-    }
-
-    public class Display : IDisplay
-    {
-
         public void Connection()
         {
-
             string connectionString = "Phone is connected";
             System.Console.WriteLine(connectionString);
+            
         }
 
         public void LoadRFID()
@@ -79,4 +66,6 @@ namespace ClassLibrary
         }
 
     }
+
 }
+

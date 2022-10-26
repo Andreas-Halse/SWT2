@@ -6,14 +6,6 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public interface IDoor
-    {
-        bool locked { get; }
-        void DoorUnlock();
-
-        void DoorLock();
-    }
-
     public class Door : IDoor
     {
         public bool locked { get; set; }

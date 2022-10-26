@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SWT2
 {
-    public interface IlogFile
+    public interface ILogFile
     {
         void logDoorLocked(int id);
         void logDoorUnlocked(int id);
 
     }
 
-    internal class logFile : IlogFile
+    internal class logFile : ILogFile
     {
         public void logDoorLocked(int id)
         {

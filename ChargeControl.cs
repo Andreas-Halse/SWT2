@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-  
+
     public class ChargeControl : IChargeControl
     {
         IUsbCharger _charger;
@@ -23,7 +23,7 @@ namespace ClassLibrary
         {
             if (_charger.Connected == true)
             {
-                
+
                 return true;
             }
             else
@@ -31,18 +31,20 @@ namespace ClassLibrary
                 return false;
             }
         }
+
         public void StartCharge()
         {
             _charger.StartCharge();
         }
+
         public void StopCharge()
         {
             _charger.StopCharge();
         }
 
-        public void OnNewCurrent(object?, CurrentEventArgs e)
+        public void OnNewCurrent(object? a, CurrentEventArgs e)
         {
-            if (e.Current>5 && e.Current < 500)
+            if (e.Current > 5 && e.Current < 500)
             {
                 _display.PhoneCharging();
             }
@@ -61,11 +63,10 @@ namespace ClassLibrary
                 _display.ConnectionError();
             }
         }
-        {
 
-        }
+
+
     }
 
+}  
     
-    
-}

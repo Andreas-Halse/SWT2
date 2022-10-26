@@ -34,7 +34,7 @@ namespace ClassLibrary
             _display = display;
             _state = LadeskabState.Available;
             _door.DoorStateChange += OnDoorStateChange;
-            _RFIDReader.RFIDDetected += OnRFIDDetected;
+            _RFIDReader.RfidDeteced += OnRFIDDetected;
 
         }
 
@@ -54,7 +54,7 @@ namespace ClassLibrary
             }
         }
 
-        public void OnRFIDDetected(object? rfidReader, RFIDDetectedEventArgs rfidArgs)
+        public void OnRFIDDetected(object? rfidReader, RFIDEventArgs rfidArgs)
         {
             
             //Hvis ladeskabet ikke er optaget

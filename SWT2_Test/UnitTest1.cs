@@ -99,31 +99,71 @@ namespace SWT2_Test
         [Test]
         public void RFIDErrorTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.RFIDError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "RFID not loaded - an error occurred\r\n");
         }
 
         [Test]
         public void RemovePhoneTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.RemovePhone();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Please remove phone\r\n");
         }
 
         [Test]
         public void FullyChargedTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.FullyCharged();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is fully charged\r\n");
         }
 
         [Test]
         public void PhoneChargingTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.PhoneCharging();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is charging\r\n");
         }
 
         [Test]
         public void ChargeErrorTest()
         {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
 
+            IDisplay uut = new Display();
+            uut.ChargeError();
+
+            string actulstring = stringwriter.ToString();
+
+            Assert.Equals(actulstring, "Phone is NOT Charging - an error occurred\r\n");
         }
         #endregion
 

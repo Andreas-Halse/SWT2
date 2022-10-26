@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-
-
 using ClassLibrary;
 using NUnit.Framework;
 using SWT2;
@@ -10,6 +8,7 @@ namespace SWT2_Test
 {
     //
 
+    [TestFixture]
     public class Tests
     {
         [SetUp]

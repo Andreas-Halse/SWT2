@@ -25,6 +25,7 @@ namespace ClassLibrary
 
         public void Connection()
         {
+
             string connectionString = "Phone is connected";
             System.Console.WriteLine(connectionString);
         }

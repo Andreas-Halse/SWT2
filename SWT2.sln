@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWT2", "SWT2.csproj", "{B73
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SWT2_Console", "SWT2_Console\SWT2_Console.csproj", "{96D281BA-E13C-4324-B128-E5EDB5DFD14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWT2_Test", "SWT2_Test_2\SWT2_Test.csproj", "{CB1825BD-BDEE-421A-AA57-A7DEB1D7B52C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWT2_Test_2", "SWT2_Test_2\SWT2_Test_2.csproj", "{CB1825BD-BDEE-421A-AA57-A7DEB1D7B52C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

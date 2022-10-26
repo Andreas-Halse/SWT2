@@ -4,7 +4,6 @@ using ClassLibrary;
 using NSubstitute;
 using NUnit.Framework;
 using SWT2;
-using SWT2.Stubs;
 
 namespace SWT2_Test
 {

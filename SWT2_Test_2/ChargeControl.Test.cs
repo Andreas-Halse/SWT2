@@ -20,8 +20,8 @@ namespace SWT2_Test
         [SetUp]
         public void Setup()
         {
-            _usbCharger = Substitute.For<IUsbCharger>();
-            _display = Substitute.For<IDisplay>();
+            _usbCharger =  Substitute.For<IUsbCharger>();
+            _display =  Substitute.For<IDisplay>();
             _uut = new ChargeControl(_usbCharger, _display);
 
 
@@ -47,6 +47,7 @@ namespace SWT2_Test
         {
             _uut.StopCharge();
             _usbCharger.Received(1).StopCharge();
+            
         }
 
         [Test]
@@ -55,12 +56,18 @@ namespace SWT2_Test
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 0 });
             _usbCharger.Received(1).StopCharge();
             _display.Received(1).FullyCharged();
+            
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 5 });
             _display.Received(1).PhoneCharging();
+            
+            
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 500 });
-            _usbCharger.Received(1).StopCharge();
+            _usbCharger.Received(2).StopCharge();
             _display.Received(1).ChargeError();
+
+            
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = -1 });
+            _usbCharger.Received(2).StopCharge();
             _display.Received(1).ConnectionError();
         }
 

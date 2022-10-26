@@ -16,6 +16,8 @@ namespace ClassLibrary
     {
         public event EventHandler<RFIDEventArgs> RfidDeteced;
 
+        void RFIDTagReader(int id);
+
     }
     
     

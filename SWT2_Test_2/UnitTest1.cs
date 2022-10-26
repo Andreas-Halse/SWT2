@@ -30,12 +30,13 @@ namespace SWT2_Test
 
        /* [Test]
 
-        public void GetRfidTag(id)
+        public void RFIDTagReader()
         {
+            int id = 1234;
             IRFIDReader uut = new RFIDReader();
 
             Assert.
-        }*/
+        }
         
 
         #endregion

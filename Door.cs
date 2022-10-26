@@ -11,10 +11,10 @@ namespace ClassLibrary
 
         public class DoorEventArgs : EventArgs
         {
-            public DoorStatus doorStatus { get; set; }
+            //public DoorStatus doorStatus { get; set; }
         }
 
-        private DoorStatus currentDoorStatus;
+       // private DoorStatus currentDoorStatus;
         
         public bool locked { get; set; }
 

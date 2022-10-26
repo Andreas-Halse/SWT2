@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f52121a5-433f-4ac4-a874-44d1aa24a6c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SWT2/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SWT2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SWT2/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SWT2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IChargeControl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MockChargeControl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MockUsbCharger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UsbCharger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChargeControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChargeControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IUsbCharger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IUsbCharger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SWT2_Console/SWT2_Console.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SWT2_Console/SWT2_Console.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SWT2_Test/SWT2_Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SWT2_Test/SWT2_Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SWT2_Test/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SWT2_Test/UnitTest1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTest1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsbChargerSimulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UsbChargerSimulator.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2G4jPHfvocF7VjTGsg7yjbuLYkY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f52121a5-433f-4ac4-a874-44d1aa24a6c9" name="Default Changelist" comment="" />
+      <created>1665654726463</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665654726463</updated>
+    </task>
+    <servers />
+  </component>
+</project>

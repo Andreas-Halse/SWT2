@@ -1,4 +1,9 @@
+using System;
+using System.IO;
+
+
 using ClassLibrary;
+
 namespace SWT2_Test
 {
 
@@ -17,6 +22,73 @@ namespace SWT2_Test
         {
             Assert.Pass();
         }
+
+
+
+
+        #region DisplayTests
+
+        [Test]
+        public void outputTest()
+        {
+            var stringwriter = new StringWriter();
+            Console.SetOut(stringwriter);
+            string test = "test";
+            Console.WriteLine(test);
+        }
+
+        [Test]
+        public void ConnectionTest()
+        {
+
+        }
+
+        [Test]
+        public void LoadRFIDTest()
+        {
+
+        }
+
+        [Test]
+        public void ConnectionErrorTest()
+        {
+
+        }
+
+        [Test]
+        public void OccupiedTest()
+        {
+
+        }
+
+        [Test]
+        public void RFIDErrorTest()
+        {
+
+        }
+
+        [Test]
+        public void RemovePhoneTest()
+        {
+
+        }
+
+        [Test]
+        public void FullyChargedTest()
+        {
+
+        }
+
+        [Test]
+        public void PhoneChargingTest()
+        {
+
+        }
+
+        [Test]
+        public void ChargeErrorTest()
+        {
+
 
         #region ChargeControlTests
         [Test]

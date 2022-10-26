@@ -16,7 +16,6 @@ namespace SWT2_Test
         public void Setup()
         {
             //IChargeControl mockCharge= new MockChargeControl();
-
         }
 
         [Test]
@@ -399,6 +398,14 @@ namespace SWT2_Test
             Assert.That(uut._open == false);
         }
 
+        public void DoorStatusEventTest()
+        {
+            IDoor uut = new Door();
+            uut.DoorClosed();
+            //Assert.That();
+        }
+
+        
         #endregion
 
 

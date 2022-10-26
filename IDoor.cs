@@ -9,7 +9,7 @@ namespace ClassLibrary
     
     public class DoorEventArgs : EventArgs
     {
-        public bool locked { get; set; }
+        public bool open { get; set; }
     }
     
     public interface IDoor
@@ -17,8 +17,10 @@ namespace ClassLibrary
         public event EventHandler<DoorEventArgs> DoorStateChange;
 
         bool locked { get; }
-        void DoorUnlock();
 
+        void DoorOpened();
+        void DoorClosed();
+        void DoorUnlock();
         void DoorLock();
     }
 }

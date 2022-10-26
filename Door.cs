@@ -13,30 +13,44 @@ namespace ClassLibrary
 
         protected virtual void OnDoorStateChange()
         {
-            DoorStateChange?.Invoke(this, new DoorEventArgs() {locked = this.locked});
+            DoorStateChange?.Invoke(this, new DoorEventArgs() {open = this._open}); //lokal variabel = _open
         }
-
+        
         //event stuff end
-        
-        public bool locked { get; set; }
-
-        public Door()
+        Door()
         {
-            locked = false; //Lav event 
+            _open = false; 
         }
-        
+        public bool locked { get; set; }
+        public bool _open { get; set; }
+
+        public void DoorOpened()
+        {
+            _open = true;
+            OnDoorStateChange();
+        }
+
+        public void DoorClosed()
+        {
+            _open = false;
+            OnDoorStateChange();
+        }
+
+
+
+
         public void DoorUnlock()
         {
             //Give message to StationControl that door is unlocked.
             locked = false;
-            OnDoorStateChange();
         }
 
         public void DoorLock()
         {
             //Give message to StationControl that door is locked. 
             locked = true;
-            OnDoorStateChange();
         }
+
+        
     }
 }

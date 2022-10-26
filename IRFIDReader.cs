@@ -14,7 +14,7 @@ namespace ClassLibrary
 
     public interface IRFIDReader
     {
-        public event EventHandler<RFIDEventArgs> RfidDeteced;
+        event EventHandler<RFIDEventArgs> RfidDeteced;
 
         void RFIDTagReader(int id);
 

@@ -8,6 +8,14 @@ namespace ClassLibrary
 {
     public class Door : IDoor
     {
+
+        public class DoorEventArgs : EventArgs
+        {
+            public DoorStatus doorStatus { get; set; }
+        }
+
+        private DoorStatus currentDoorStatus;
+        
         public bool locked { get; set; }
 
         public Door()

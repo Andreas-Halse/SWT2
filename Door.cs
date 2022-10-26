@@ -9,34 +9,42 @@ namespace ClassLibrary
     public class Door : IDoor
     {
         //event stuff start
-        public event EventHandler<DoorEventArgs> DoorStateChange;
-
+        public event EventHandler<DoorEventArgs> DoorStateChange;   //"DoorStateChange" er det eventet skal triggeres på
+                                                                    //"DoorEventArgs" er argumenterne der er inkluderet i hvad der sendes af eventet
         protected virtual void OnDoorStateChange()
         {
-            DoorStateChange?.Invoke(this, new DoorEventArgs() {locked = this.locked});
+            DoorStateChange?.Invoke(this, new DoorEventArgs() {open = this._open}); //lokal variabel med bundstreg "_open"
         }
-
         //event stuff end
         
-        public bool locked { get; set; }
-
-        public Door()
+        Door()  //door constructor
         {
-            locked = false; //Lav event 
+            _open = false; 
         }
-        
-        public void DoorUnlock()
+        public bool locked { get; set; }    //bool for om døren er låst
+        public bool _open { get; set; }     //bool for om døren er åben
+
+        public void DoorOpened()
         {
-            //Give message to StationControl that door is unlocked.
+            _open = true;
+            OnDoorStateChange();    //event called
+        }
+
+        public void DoorClosed()
+        {
+            _open = false;
+            OnDoorStateChange();    //event called
+        }
+
+        public void DoorUnlock()    //denne funktion kan kaldes af stationControl
+        {
             locked = false;
-            OnDoorStateChange();
         }
 
-        public void DoorLock()
+        public void DoorLock()      //denne funktion kan kaldes af stationControl
         {
-            //Give message to StationControl that door is locked. 
             locked = true;
-            OnDoorStateChange();
         }
+
     }
 }

@@ -21,7 +21,7 @@ namespace SWT2
             {
                 String timeStamp = GetTimestamp(DateTime.Now);
                 writer.WriteLine(timeStamp);
-                writer.WriteLine("Id: ", id);
+                writer.WriteLine("Id: " + id);
                 writer.WriteLine("RFID has locked the door.");
             }
         }
@@ -33,7 +33,7 @@ namespace SWT2
             {
                 String timeStamp = GetTimestamp(DateTime.Now);
                 writer.WriteLine(timeStamp);
-                writer.WriteLine("Id: ", id);
+                writer.WriteLine("Id: " + id);
                 writer.WriteLine("RFID has unlocked the door.");
             }
         }

@@ -32,7 +32,23 @@ namespace SWT2_Test_2
             string text = File.ReadAllText("logFile.txt");
             
 
-            Assert.That(text, Is.EqualTo(text)); // Fucked test spørg Frank
+            Assert.That(text, Contains.Substring("4444")); // Fucked test spørg Frank
+        }
+
+        [Test]
+        public void UnlockedTest()
+        {
+            if (File.Exists("logFile.txt"))
+            {
+                File.Delete("logFile.txt");
+            }
+            ILogFile uut = new logFile();
+            uut.logDoorUnlocked(4444);
+
+            string text = File.ReadAllText("logFile.txt");
+
+
+            Assert.That(text, Contains.Substring("4444")); // Fucked test spørg Frank
         }
 
         [Test]

@@ -30,21 +30,21 @@ namespace SWT2_Test_2
 
         [Test]
 
-        public void setRFIDTag()
+        public void setRFIDTag() //Test that id sent is not null
         {
             _uut.RFIDTagReader(2945);
             Assert.That(_receivedEventArgs, Is.Not.Null);
         }
         
         [Test]
-        public void setRFIDTag_CorrectValue()
+        public void setRFIDTag_CorrectValue() //Test that correct id is sent
         {
             _uut.RFIDTagReader(2945);
             Assert.That(_receivedEventArgs.id, Is.EqualTo(2945));
         }
         
         [Test]
-        public void setRFIDTag_NotCorrectValue()
+        public void setRFIDTag_NotCorrectValue() //Test that correct id is not sent
         {
             _uut.RFIDTagReader(3333);
             Assert.AreNotEqual(_receivedEventArgs.id, (2945));

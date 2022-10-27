@@ -8,5 +8,9 @@
 
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SWT2_ClassLibrary\SWT2_ClassLibrary.csproj" />
+  </ItemGroup>
+
 
 </Project>

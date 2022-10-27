@@ -15,12 +15,12 @@ namespace ClassLibrary
         }
 
         //Event starts
-        public event EventHandler <RFIDEventArgs> RfidDeteced;
+        public event EventHandler <RFIDEventArgs> RfidDetected;
 
        
         protected virtual void OnRfidDetected()
         {
-          RfidDeteced?.Invoke(this, new RFIDEventArgs() {id = this._ID});
+          RfidDetected?.Invoke(this, new RFIDEventArgs() {id = this._ID});
         }
 // Event ends
     }

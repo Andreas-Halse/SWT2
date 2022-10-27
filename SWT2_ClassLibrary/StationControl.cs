@@ -15,16 +15,16 @@ namespace ClassLibrary
         };
 
         // Her mangler flere member variable
-        private LadeskabState _state;
+        public LadeskabState _state { get; set; }
         private IChargeControl _charger;
-        private int _oldId;
+        public int _oldId;
         private IDoor _door;
         private IDisplay _display;
-        private RFIDReader _RFIDReader;
+        private IRFIDReader _RFIDReader;
 
         private ILogFile _logFile;
 
-        public StationControl(IChargeControl charger, IDoor door, IDisplay display, RFIDReader rfidReader, ILogFile logfile )
+        public StationControl(IChargeControl charger, IDoor door, IDisplay display, IRFIDReader rfidReader, ILogFile logfile )
      
         {
             _RFIDReader = rfidReader;
@@ -34,7 +34,7 @@ namespace ClassLibrary
             _display = display;
             _state = LadeskabState.Available;
             _door.DoorStateChange += OnDoorStateChange;
-            _RFIDReader.RfidDeteced += OnRFIDDetected;
+            _RFIDReader.RfidDetected += OnRFIDDetected;
 
         }
 
@@ -72,7 +72,7 @@ namespace ClassLibrary
                 _door.DoorLock();
                 _oldId = rfidArgs.id;
 
-                //_logFile.LogDoorLocked(_oldId);
+                _logFile.logDoorLocked(_oldId);
 
                 _state = LadeskabState.Locked;
             }
@@ -84,7 +84,7 @@ namespace ClassLibrary
                 {
                     _charger.StopCharge();
                     _door.DoorUnlock();
-                    //_logFile.LogDoorUnlocked(rfidArgs.id);
+                    _logFile.logDoorUnlocked(rfidArgs.id);
                     _state = LadeskabState.Available;
                     _display.RemovePhone();
                 }

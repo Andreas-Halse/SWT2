@@ -13,7 +13,7 @@ namespace SWT2_Test
     [TestFixture]
     public class StationControl_Test
     {
-        private StationControl _uut;
+        private IStationControl _uut;
         private IDoor _door;
         private IRFIDReader _rfidReader;
         private IDisplay _display;
@@ -71,12 +71,20 @@ namespace SWT2_Test
         [Test]
         public void OnRFIDDetected_Locked() //Tester Rfid eventhandler hvis entry state er locked
         {
-            _uut._state = StationControl.LadeskabState.Locked;
-            _uut._oldId = 2;
+            _uut._state = StationControl.LadeskabState.Available;
+            _chargeControl.IsConnected().Returns(true);
+            _rfidReader.RfidDetected += Raise.EventWith(new RFIDEventArgs() { id = 2 });
+
+            //nu er den locked med oldID = 2
+            Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Locked));
+            Assert.That(_uut._oldId, Is.EqualTo(2));
+
+
             _rfidReader.RfidDetected += Raise.EventWith(new RFIDEventArgs() { id = 1 });
             _chargeControl.Received(0).StopCharge();
             _display.Received(1).RFIDError();
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Locked));
+
 
             _rfidReader.RfidDetected += Raise.EventWith(new RFIDEventArgs() { id = 2 });
             _chargeControl.Received(1).StopCharge();

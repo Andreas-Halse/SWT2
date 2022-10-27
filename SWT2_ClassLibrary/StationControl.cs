@@ -4,7 +4,16 @@ using SWT2;
 
 namespace ClassLibrary
 {
-    public class StationControl
+    public interface IStationControl
+    {
+        StationControl.LadeskabState _state { get; set; }
+        void OnDoorStateChange(object? door, DoorEventArgs doorArgs);
+        void OnRFIDDetected(object? rfidReader, RFIDEventArgs rfidArgs);
+        int _oldId { get; }
+
+    }
+
+    public class StationControl : IStationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         public enum LadeskabState
@@ -17,7 +26,7 @@ namespace ClassLibrary
         // Her mangler flere member variable
         public LadeskabState _state { get; set; }
         private IChargeControl _charger;
-        public int _oldId;
+        public  int _oldId { get; private set; }
         private IDoor _door;
         private IDisplay _display;
         private IRFIDReader _RFIDReader;

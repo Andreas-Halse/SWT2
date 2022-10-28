@@ -48,7 +48,7 @@ namespace ClassLibrary
             {
                 _display.PhoneCharging();
             }
-            else if (e.Current > 0 && e.Current <= 5)
+            else if (e.Current >= 0 && e.Current <= 5)
             {
               
                     _display.FullyCharged();

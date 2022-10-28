@@ -58,16 +58,20 @@ namespace SWT2_Test
             _display.Received(1).FullyCharged();
             
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 5 });
-            _display.Received(1).PhoneCharging();
-            
-            
-            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 500 });
             _usbCharger.Received(2).StopCharge();
+            _display.Received(0).PhoneCharging();
+
+
+            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 500 });
+            _display.Received(1).PhoneCharging();
+
+            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = 501 });
+            _usbCharger.Received(3).StopCharge();
             _display.Received(1).ChargeError();
 
             
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs() { Current = -1 });
-            _usbCharger.Received(2).StopCharge();
+            _usbCharger.Received(3).StopCharge();
             _display.Received(1).ConnectionError();
         }
 

@@ -34,7 +34,7 @@ namespace SWT2_Test
         public void OnDoorStateChange_Open()
         {
             _door.DoorStateChange += Raise.EventWith(new DoorEventArgs() { open = true });
-            _display.Received(1).LoadRFID();
+            _display.Received(1).Connection();
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.DoorOpen));
         }
 

@@ -3,6 +3,7 @@ using System.IO;
 using ClassLibrary;
 using NSubstitute;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using SWT2;
 
 namespace SWT2_Test
@@ -31,6 +32,12 @@ namespace SWT2_Test
         }
 
         [Test]
+        public void TestOfSecondaryConstructor()
+        {
+            _uut = new StationControl(_door, _rfidReader);
+        }
+            
+        [Test]
         public void OnDoorStateChange_Open()
         {
             _door.DoorStateChange += Raise.EventWith(new DoorEventArgs() { open = true });
@@ -45,6 +52,11 @@ namespace SWT2_Test
             _door.DoorStateChange += Raise.EventWith(new DoorEventArgs() { open = false });
             _display.Received(1).Connection();
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
+            _chargeControl.IsConnected().Returns(true);
+            _door.DoorStateChange += Raise.EventWith(new DoorEventArgs() { open = false });
+            Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
+
+
         }
 
         [Test]

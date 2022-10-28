@@ -103,6 +103,12 @@ namespace SWT2_Test
             _door.Received(1).DoorUnlock();
             _logFile.Received(1).logDoorUnlocked(2);
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
+
+            _door.DoorStateChange += Raise.EventWith(new DoorEventArgs() { open = true });
+
+            _rfidReader.RfidDetected += Raise.EventWith(new RFIDEventArgs() { id = 2 });
+            Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.DoorOpen));
+
         }
 
         

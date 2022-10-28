@@ -10,7 +10,7 @@ namespace ClassLibrary
         private const double MaxCurrent = 500.0; // mA
         private const double FullyChargedCurrent = 2.5; // mA
         private const double OverloadCurrent = 750; // mA
-        private const int ChargeTimeSeconds = 5; // seconds
+        private const int ChargeTimeMinutes = 1; // 
         private const int CurrentTickInterval = 250; // ms
 
         public event EventHandler<CurrentEventArgs> CurrentValueEvent;
@@ -45,7 +45,7 @@ namespace ClassLibrary
                 if (Connected && !_overload)
                 {
                     double newValue = MaxCurrent - 
-                                      _ticksSinceStart * (MaxCurrent - FullyChargedCurrent) / (ChargeTimeSeconds * 1000 / CurrentTickInterval);
+                                      _ticksSinceStart * (MaxCurrent - FullyChargedCurrent) / (ChargeTimeMinutes *60* 1000 / CurrentTickInterval);
                     CurrentValue = Math.Max(newValue, FullyChargedCurrent);
                 }
                 else if (Connected && _overload)

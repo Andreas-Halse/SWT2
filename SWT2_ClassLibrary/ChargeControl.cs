@@ -44,16 +44,18 @@ namespace ClassLibrary
 
         public void OnNewCurrent(object? a, CurrentEventArgs e)
         {
-            if (e.Current >= 5 && e.Current < 500)
+            if (e.Current > 5 && e.Current <= 500)
             {
                 _display.PhoneCharging();
             }
-            else if (e.Current >= 0 && e.Current < 5)
+            else if (e.Current > 0 && e.Current <= 5)
             {
-                StopCharge();
-                _display.FullyCharged();
+              
+                    _display.FullyCharged();
+
+                    StopCharge();
             }
-            else if (e.Current >= 500)
+            else if (e.Current > 500)
             {
                 StopCharge();
                 _display.ChargeError();

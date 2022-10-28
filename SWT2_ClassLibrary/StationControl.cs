@@ -32,6 +32,20 @@ namespace ClassLibrary
         private IRFIDReader _RFIDReader;
 
         private ILogFile _logFile;
+        public StationControl( IDoor door, IRFIDReader rfidReader)
+
+        {
+            _RFIDReader = rfidReader;
+            _logFile = new logFile();
+            _door = door;
+            _display = new Display();
+            _charger = new ChargeControl(new UsbFastChargerSimulator(),_display);
+
+            _state = LadeskabState.Available;
+            _door.DoorStateChange += OnDoorStateChange;
+            _RFIDReader.RfidDetected += OnRFIDDetected;
+
+        }
 
         public StationControl(IChargeControl charger, IDoor door, IDisplay display, IRFIDReader rfidReader, ILogFile logfile )
      
@@ -52,14 +66,24 @@ namespace ClassLibrary
             if (doorArgs.open)
             {
                 //hvis door er open
-                _display.LoadRFID();
+                _display.Connection();
                 _state = LadeskabState.DoorOpen;
             }
             else
             {
                 //hvis door er closed
-                _display.Connection();
+                if (_charger.IsConnected())
+                {
+                    _display.LoadRFID();
+
+
+                }
+                else
+                {
+                    _display.Connection();
+                }
                 _state = LadeskabState.Available;
+
             }
         }
 
@@ -72,6 +96,7 @@ namespace ClassLibrary
                 //Check om telefonen er tilkoblet
                 if (!_charger.IsConnected())
                 {
+                    _display.ConnectionError();
                     return;
                 }
                 
@@ -97,6 +122,14 @@ namespace ClassLibrary
                     _state = LadeskabState.Available;
                     _display.RemovePhone();
                 }
+                else
+                {
+                    _display.Occupied();
+                }
+            }
+            else
+            {
+                //her burder være en luk døren display funktion
             }
             
         }
@@ -115,6 +148,5 @@ namespace ClassLibrary
                 return false;
             }
         }
-        
     }
 }

@@ -14,13 +14,8 @@ namespace SWT2_Console
             // Assemble your system here from all the classes
             IDoor door = new Door();
             IRFIDReader rfid = new RFIDReader();
-            IUsbCharger usbCharger = new UsbFastChargerSimulator();
-            IDisplay display = new Display();
-            IChargeControl chargeCtrl = new ChargeControl(usbCharger, display);
-            logFile logfileout = new logFile();
-            StationControl stationControl = new StationControl(chargeCtrl, door, display, rfid, logfileout);
+            StationControl stationControl = new StationControl(door, rfid);
             bool finish = false;
-
 
             do
             {
@@ -51,7 +46,7 @@ namespace SWT2_Console
                     case 'C':
                         door.DoorClosed();
                         break;
-
+                        
                     case 'R':
                         System.Console.WriteLine("Indtast RFID id: ");
                         string idString = System.Console.ReadLine();

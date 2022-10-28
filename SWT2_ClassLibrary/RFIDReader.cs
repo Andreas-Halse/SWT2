@@ -22,7 +22,7 @@ namespace ClassLibrary
         {
           RfidDetected?.Invoke(this, new RFIDEventArgs() {id = this._ID});
         }
-// Event ends
+        // Event ends
     }
 
     

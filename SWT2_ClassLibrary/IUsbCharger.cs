@@ -21,6 +21,9 @@ namespace ClassLibrary
         // Require connection status of the phone
         bool Connected { get; }
 
+        public void SimulateConnected(bool connected);
+
+        public void SimulateOverload(bool overload);
 
 
         // Start charging

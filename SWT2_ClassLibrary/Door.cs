@@ -26,8 +26,13 @@ namespace ClassLibrary
 
         public void DoorOpened()
         {
-            _open = true;
-            OnDoorStateChange();    //event called
+            if (!locked)
+            {
+                _open = true;
+                OnDoorStateChange();               //event called
+            }
+
+
         }
 
         public void DoorClosed()
